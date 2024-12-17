@@ -1,3 +1,6 @@
+// Libraries
+import { useTranslation } from 'react-i18next';
+
 // Components
 import About from './sections/About';
 import Contact from './sections/Contact';
@@ -7,7 +10,6 @@ import Navbar from './components/Navbar';
 import SEOModule from './components/SEOModule';
 import Showcase from './sections/Showcase';
 import TrustedClients from './sections/TrustedClients';
-import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { t, i18n } = useTranslation();
