@@ -1,5 +1,5 @@
 // Libraries
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
@@ -25,7 +25,7 @@ const About = () => {
 
   const lang = i18n.language;
 
-  useEffect(() => {
+  const loadRecaptchaScript = () => {
     const scriptUrl = 'https://www.google.com/recaptcha/api.js';
     if (!document.querySelector(`script[src^="${scriptUrl}"]`)) {
       const script = document.createElement('script');
@@ -33,7 +33,7 @@ const About = () => {
       script.defer = true;
       document.body.appendChild(script);
     }
-  }, []);
+  };
 
   const formatLinks = (text: string) => {
     const urlRegex = /([hH]ttps?:\/\/[^\s]+)/g;
@@ -93,6 +93,11 @@ const About = () => {
     }
   };
 
+  const handleFocus = () => {
+    loadRecaptchaScript();
+    setQuestionFocused(true);
+  };
+
   return (
     <AppearOnScroll>
       <section id="about" className={styles.container}>
@@ -113,7 +118,7 @@ const About = () => {
                   placeholder={t('sections.about.chatbot.placeholder')}
                   onInput={(e) => setQuestion(e.currentTarget.value)}
                   value={question}
-                  onFocus={() => setQuestionFocused(true)}
+                  onFocus={() => handleFocus()}
                   onBlur={() => setQuestionFocused(false)}
                 />
               </div>

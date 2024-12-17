@@ -107,7 +107,7 @@ const Questions = () => {
         ],
       },
     ],
-    [keyPrefix]
+    [t, keyPrefix]
   );
 
   return useMemo(
