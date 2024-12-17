@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useCallback, useEffect, useRef } from 'react';
 
 const TiltElement = ({ children }: PropsWithChildren) => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -22,36 +22,38 @@ const TiltElement = ({ children }: PropsWithChildren) => {
     }, 200);
   };
 
-  const loseTilt = () => {
+  const loseTilt = useCallback(() => {
     if (elementRef.current) {
       addTmpTransition();
       elementRef.current.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
     }
-  };
+  }, [elementRef]);
 
   useEffect(() => {
-    if (elementRef.current) {
-      const width = elementRef.current?.clientWidth;
-      const height = elementRef.current?.clientHeight;
-      elementRef.current.addEventListener('mousemove', (e) =>
+    const currentElement = elementRef.current;
+
+    if (currentElement) {
+      const width = currentElement.clientWidth;
+      const height = currentElement.clientHeight;
+      currentElement.addEventListener('mousemove', (e) =>
         handleTilt(e, width, height)
       );
-      elementRef.current.addEventListener('mouseenter', addTmpTransition);
-      elementRef.current.addEventListener('mouseleave', loseTilt);
+      currentElement.addEventListener('mouseenter', addTmpTransition);
+      currentElement.addEventListener('mouseleave', loseTilt);
     }
 
     return () => {
-      if (elementRef.current) {
-        const width = elementRef.current?.clientWidth;
-        const height = elementRef.current?.clientHeight;
-        elementRef.current.removeEventListener('mousemove', (e) =>
+      if (currentElement) {
+        const width = currentElement.clientWidth;
+        const height = currentElement.clientHeight;
+        currentElement.removeEventListener('mousemove', (e) =>
           handleTilt(e, width, height)
         );
-        elementRef.current.removeEventListener('mouseenter', addTmpTransition);
-        elementRef.current.removeEventListener('mouseleave', loseTilt);
+        currentElement.removeEventListener('mouseenter', addTmpTransition);
+        currentElement.removeEventListener('mouseleave', loseTilt);
       }
     };
-  }, [elementRef]);
+  }, [elementRef, loseTilt]);
 
   return <div ref={elementRef}>{children}</div>;
 };

@@ -4,7 +4,7 @@ import Contact from './sections/Contact';
 import Hero from './sections/Hero';
 import Map from './sections/Map';
 import Navbar from './components/Navbar';
-import SEO from './components/SEO';
+import SEOModule from './components/SEOModule';
 import Showcase from './sections/Showcase';
 import TrustedClients from './sections/TrustedClients';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <>
-      <SEO
+      <SEOModule
         title={`The Web's Door - Adrien Lepoutre`}
         keywords={
           'frontend,developer,react,website,web,app,mobile,apps,site,sites,front-end,front,programmer'
