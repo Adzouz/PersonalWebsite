@@ -22,6 +22,10 @@ const SEOModule = ({
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://thewebsdoor.com/images/facebook.webp"
+    />
     <meta content="386568964690808" property="fb:app_id" />
     <link rel="canonical" href={url} />
     {alternateUrls.map(({ lang, url }) => (
