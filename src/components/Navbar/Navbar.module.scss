@@ -1,0 +1,260 @@
+@keyframes lineAnimation {
+  0% {
+    width: 0;
+    left: 0.5rem;
+  }
+  50% {
+    width: calc(100% - 1rem);
+    left: 0.5rem;
+  }
+  100% {
+    width: 0;
+    left: calc(100% - 0.5rem);
+  }
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 1rem;
+  margin: 0;
+  margin-bottom: 1rem;
+  z-index: 10;
+  transition: .3s all ease-in-out;
+
+  @include min('tablet') {
+    align-items: center;
+    padding: 0 3rem;
+    left: 0;
+    transform: none;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .3s all ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    @include glassmorphism;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+  &,
+  ul {
+    list-style: none;
+  }
+  &.mobileMenuDisplayed,
+  &.withBackground {
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &.withBackground:not(.mobileMenuDisplayed) {
+    .right {
+      ul {
+        @include glassmorphism;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        top: 100%;
+      }
+    }
+  }
+  > * {
+    position: relative;
+    z-index: 12;
+  }
+  .mobileMenuButton {
+    padding: 1.25rem 0.5rem;
+    background: transparent;
+
+    @include min('tablet') {
+      display: none;
+    }
+  }
+  > ul {
+    @include min('tablet') {
+      display: flex;
+      align-items: center;
+    }
+    &,
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  a, button {
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    color: var(--second-color);
+    font-size: 0.875rem;
+    border-radius: 2rem;
+    line-height: 1;
+    padding: 0.25rem 0.5rem;
+
+    @include min('tablet') {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    &:focus-visible {
+      background-color: var(--text-color);
+    }
+  }
+  > ul {
+    &.left {
+      padding: 1rem 0;
+
+      @include min('tablet') {
+        padding: 0;
+      }
+      > li {
+        height: 0;
+        transition: .2s all ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+
+        @include min('tablet') {
+          height: auto;
+          opacity: 1;
+          visibility: visible;
+        }
+        &:nth-child(2) {
+          transition-delay: 0.1s;
+        }
+        &:nth-child(3) {
+          transition-delay: 0.2s;
+        }
+        &:nth-child(4) {
+          transition-delay: 0.3s;
+        }
+      }
+    }
+    &.visible.left {
+      > li {
+        opacity: 1;
+        visibility: visible;
+        height: 1.625rem;
+      }
+    }
+    > li {
+      margin: 0;
+      position: relative;
+      transition: .2s all ease-in-out;
+
+      > a {
+        display: block;
+        position: relative;
+        z-index: 2;
+
+        &::after {
+          content: '';
+          height: 2px;
+          width: 0;
+          position: absolute;
+          left: 1rem;
+          bottom: 0;
+          background-color: var(--text-color);
+          z-index: 1;
+        }
+        @media (hover: hover) {
+          &:hover {
+            &::after {
+              animation: lineAnimation 0.6s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right {
+    margin-left: auto;
+    padding: 0.5rem 0;
+
+    @media (hover: hover) {
+      &:hover {
+        @include min('desktop') {
+          button {
+            @include buttonDefault;
+          }
+          ul {
+            &, li {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+    button {
+      position: relative;
+      z-index: 2;
+    }
+    a,
+    button {
+      @include button;
+      @include buttonHover;
+      & {
+        display: flex;
+        align-items: center;
+        border-radius: 2rem;
+        padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+      }
+      @include min('tablet') {
+        font-size: 1rem;
+      }
+      @media (hover: hover) {
+        &:hover {
+          @include buttonDefault;
+        }
+      }
+      &:focus-visible {
+        background-color: var(--text-color);
+      }
+      svg {
+        width: 1.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0.5rem;
+      gap: 0.5rem;
+      position: absolute;
+      z-index: 1;
+      top: calc(100% - 0.5rem);
+      left: -0.5rem;
+      opacity: 0;
+      visibility: hidden;
+
+      &.show {
+        &, li {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      li {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s all ease-in-out;
+
+        &:nth-child(2) {
+          transition-delay: 0.1s;
+        }
+      }
+    }
+  }
+}

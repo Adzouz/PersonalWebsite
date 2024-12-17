@@ -1,0 +1,184 @@
+#hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3rem 1.5rem;
+  height: 100vh;
+  height: 100dvh;
+
+  @include min('tablet') {
+    padding: 4rem;
+  }
+  @include min('desktop') {
+    padding: 4rem 1rem 2rem;
+  }
+  @include min('largeDesktop') {
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+  @include min('xlargeDesktop') {
+    justify-content: space-between;
+    padding: 10rem;
+  }
+  > * {
+    position: relative;
+    z-index: 3;
+  }
+  .shapeContainer {
+    position: absolute;
+    top: 0;
+    bottom: 40%;
+    left: 5%;
+    right: 5%;
+    z-index: 1;
+    overflow: hidden;
+    z-index: 1;
+
+    @include min('tablet') {
+      top: 5%;
+      bottom: 25%;
+      left: 0;
+      right: 10%;
+    }
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.8;
+
+      @include min('tablet') {
+        opacity: 1;
+      }
+      .shape {
+        fill: var(--background-color);
+      }
+    }
+  }
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-image: url(/me.png);
+    background-position: 50% 30%;
+    background-size: auto 70%;
+    background-repeat: no-repeat;
+
+    @include min('desktop') {
+      background-position: 50% 50%;
+      background-size: auto 80%;
+    }
+    @include min('largeDesktop') {
+      background-position: 15% 70%;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vw;
+      border-radius: 50vw;
+      filter: blur(50vw);
+      opacity: 0.6;
+      background-color: var(--third-color);
+      transform: translate(-40%, -80%);
+      z-index: 1;
+
+      @include min('tablet') {
+        opacity: 0.2;
+      }
+    }
+  }
+  .info {
+    @include glassmorphism;
+    width: 100%;
+    max-width: 31.25rem;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+
+    @include min('tablet') {
+      width: auto;
+      max-width: 100%;
+    }
+    @include min('largeDesktop') {
+      padding: 2rem;
+    }
+  }
+  .title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.15;
+
+    @include min('tablet') {
+      font-size: 2rem;
+    }
+    span {
+      font-size: 2rem;
+      display: block;
+      font-family: "Sequel 100 Wide 95";
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(20deg, var(--third-color), var(--fourth-color));
+      letter-spacing: -1px;
+
+      @include min('tablet') {
+        letter-spacing: -2px;
+        font-size: 3rem;
+      }
+      @include min('xlargeDesktop') {
+        font-size: 4rem;
+      }
+    }
+  }
+  .subtitle {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: normal;
+
+    @include min('tablet') {
+      font-size: 1.5rem;
+    }
+    span {
+      @include neumorphism;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+      margin: 0 0.5rem;
+
+      @include max('desktop') {
+        border-radius: 2rem;
+        margin: 0.25rem;
+      }
+    }
+  }
+  .button {
+    margin-top: 2rem;
+
+    a {
+      @include button;
+      & {
+        text-decoration: none;
+      }
+      @media (hover: hover) {
+        &:hover {
+          @include buttonHover;
+        }
+      }
+      &:focus-visible {
+        @include buttonFocus;
+      }
+    }
+  }
+}

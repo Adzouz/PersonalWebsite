@@ -1,0 +1,25 @@
+@use "variables" as *;
+
+@font-face{
+  font-family: $secondary-font;
+  src: url("/fonts/Sequel100Wide95.woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $primary-font;
+  font-weight: normal;
+  font-style: normal;
+  src: url("/fonts/CoolveticaRegular.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $primary-font;
+  font-weight: normal;
+  font-style: italic;
+  src: url("/fonts/CoolveticaRegularItalic.woff2");
+  font-display: swap;
+}

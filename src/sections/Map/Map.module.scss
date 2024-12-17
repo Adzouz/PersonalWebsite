@@ -1,0 +1,96 @@
+#map {
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+
+  @include min('tablet') {
+    padding-bottom: 6rem;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 150vw;
+    height: 150vw;
+    border-radius: 75vw;
+    filter: blur(20vw);
+    background-color: var(--third-color);
+    transform: translate(-50%, 90%);
+    opacity: 0.3;
+    z-index: 1;
+
+    @include min('tablet') {
+      filter: blur(150vw);
+      opacity: 0.2;
+    }
+  }
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+  .shapeContainer {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    opacity: 0.8;
+    background-image: url("../../assets/bg-map.svg");
+    background-position: 50% 100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+
+    @include min('tablet') {
+      opacity: 1;
+    }
+  }
+}
+
+.worldMap {
+  position: relative;
+  padding: 0 2rem;
+
+  @include min('tablet') {
+    padding: 0 4rem;
+  }
+  svg {
+    display: block;
+    margin: auto;
+    max-width: 80rem;
+  }
+  .cityContainer {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+
+    .city {
+      @include glassmorphism;
+      padding: 0 0.5rem;
+      border-radius: 1rem;
+      color: var(--text-color);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-family: var(--secondary-font);
+
+      @include min('tablet') {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+      }
+      @include min('xlargeDesktop') {
+        padding: 1rem 1.5rem;
+        font-size: 1.5rem;
+      }
+      span {
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(20deg, var(--third-color), var(--fourth-color));
+      }
+    }
+  }
+}
