@@ -37,7 +37,6 @@
     right: 0;
     top: 0;
     bottom: 0;
-    opacity: 1;
     overflow: hidden;
     opacity: 0.8;
     z-index: 1;
@@ -146,7 +145,7 @@
           height: calc(2.125rem + 4px);
           min-height: 2.125rem;
           resize: none;
-          transition: .2s all ease-in-out;
+          transition: 0.2s all ease-in-out;
 
           @include min('tablet') {
             height: calc(3rem + 4px);
@@ -162,7 +161,7 @@
           margin-top: 0.25rem;
         }
         .errorMessage {
-          color: #C81432;
+          color: #c81432;
         }
       }
       .buttons {
@@ -276,16 +275,27 @@
           }
         }
         .item_percentage {
-          --v: calc( ((18/5) * var(--p) - 90)*1deg);
+          --v: calc(((18 / 5) * var(--p) - 90) * 1deg);
           width: 2.5rem;
           height: 2.5rem;
           padding: 0.25rem;
           border-radius: 2.5rem;
           background:
-            linear-gradient(var(--background-color),var(--background-color)) content-box,
-            linear-gradient(var(--v), var(--background-color)     50%,transparent 0) 0/min(100%,(50 - var(--p))*100%),
-            linear-gradient(var(--v), transparent 50%,var(--fourth-color)        0) 0/min(100%,(var(--p) - 50)*100%),
-            linear-gradient(to right, var(--background-color) 50%,var(--fourth-color) 0);
+            linear-gradient(var(--background-color), var(--background-color))
+              content-box,
+            linear-gradient(
+                var(--v),
+                var(--background-color) 50%,
+                transparent 0
+              )
+              0 / min(100%, (50 - var(--p)) * 100%),
+            linear-gradient(var(--v), transparent 50%, var(--fourth-color) 0) 0 /
+              min(100%, (var(--p) - 50) * 100%),
+            linear-gradient(
+              to right,
+              var(--background-color) 50%,
+              var(--fourth-color) 0
+            );
 
           @include min('tablet') {
             width: 3rem;
