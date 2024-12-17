@@ -1,0 +1,12 @@
+.element {
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s all ease-in-out;
+  transform: translateY(2rem);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}

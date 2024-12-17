@@ -1,0 +1,100 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin min($breakpoint) {
+  @media screen and (min-width: map.get($breakpointsMin, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin max($breakpoint) {
+  @media screen and (max-width: map.get($breakpointsMax, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin button {
+  appearance: none;
+  background: var(--background-color);
+  padding: 1rem 2rem;
+  color: var(--text-color);
+  border-radius: 3rem;
+  font-family: "Sequel 100 Wide 95";
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s all ease-in-out;
+  position: relative;
+  font-size: 1rem;
+  outline: 2px solid transparent;
+  border: 2px solid transparent;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2rem;
+    transition: .3s all ease-in-out;
+  }
+  &::before {
+    box-shadow: inset 5px 5px 10px var(--neumorphic-highlight), inset -5px -5px 10px var(--neumorphic-contrast);
+    opacity: 1;
+  }
+  &::after {
+    box-shadow: 5px 5px 10px var(--neumorphic-highlight), -5px -5px 10px var(--neumorphic-contrast);
+    opacity: 0;
+  }
+  @include min('xlargeDesktop') {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin buttonDefault {
+  &::before {
+    opacity: 1;
+  }
+  &::after {
+    opacity: 0;
+  }
+}
+
+@mixin buttonHover {
+  &::before {
+    opacity: 0;
+  }
+  &::after {
+    opacity: 1;
+  }
+}
+
+@mixin buttonFocus {
+  color: var(--background-color);
+  background: var(--text-color);
+  box-shadow: inset 5px 5px 10px var(--neumorphic-inverted-highlight), inset -5px -5px 10px var(--neumorphic-inverted-contrast);
+  outline-color: var(--text-color);
+  border-color: var(--background-color);
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+@mixin neumorphism {
+  background: var(--background-color);
+  box-shadow: 5px 5px 10px var(--neumorphic-highlight), -5px -5px 10px var(--neumorphic-contrast);
+}
+
+@mixin neumorphismReverse {
+  box-shadow: inset 5px 5px 10px var(--neumorphic-highlight), inset -5px -5px 10px var(--neumorphic-contrast);
+}
+
+@mixin glassmorphism {
+  box-shadow: 0 4px 30px var(--glassmorphism-shadow);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+  border: 2px solid var(--glassmorphism-outline);
+}

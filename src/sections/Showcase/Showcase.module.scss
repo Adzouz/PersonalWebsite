@@ -1,0 +1,57 @@
+#showcase {
+  padding-left: 0;
+  padding-right: 0;
+
+  .projectsContainer {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 2rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+
+      @include min('tablet') {
+        width: 4rem;
+      }
+    }
+    &::before {
+      left: 0;
+      background-image: linear-gradient(90deg, var(--background-color), transparent);
+    }
+    &::after {
+      right: 0;
+      background-image: linear-gradient(-90deg, var(--background-color), transparent);
+    }
+    .projects {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      overflow: scroll;
+      padding: 1rem 2rem;
+      gap: 1rem;
+
+      @include min('xlargeDesktop') {
+        padding: 1rem 4rem;
+        gap: 2rem;
+      }
+      > li {
+        flex: 0 0 calc(70% - 2rem);
+        min-width: 15rem;
+
+        @include min('tablet') {
+          min-width: 20rem;
+          flex: 0 0 calc(33.333% - 2rem);
+        }
+        @include min('desktop') {
+          flex: 0 0 calc(25% - 2rem);
+        }
+      }
+    }
+  }
+}
+
