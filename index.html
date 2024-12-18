@@ -2,23 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="manifest" href="/manifest.json" />
     <link rel="icon" href="/images/favicon-light.ico" media="(prefers-color-scheme: light)">
     <link rel="icon" href="/images/favicon-dark.ico" media="(prefers-color-scheme: dark)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta content="Adrien Lepoutre" name="author" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="The Web's Door - Adrien Lepoutre" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://thewebsdoor.com/images/facebook.webp"
+    />
+    <meta content="386568964690808" property="fb:app_id" />
     <title>The Web's Door - Adrien Lepoutre</title>
     <style type="text/css">
       .grecaptcha-badge {
         z-index: 99;
       }
     </style>
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js").then(() => {
-          console.log("Service Worker registered!");
-        });
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>
