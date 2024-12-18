@@ -1,31 +1,42 @@
 $breakpointsMin: (
-  "mobile": 0px,
-  "tablet": 769px,
-  "desktop": 1025px,
-  "largeDesktop": 1291px,
-  "xlargeDesktop": 1441px,
+  'mobile': 0px,
+  'tablet': 769px,
+  'desktop': 1025px,
+  'largeDesktop': 1291px,
+  'xlargeDesktop': 1441px,
 );
 
 $breakpointsMax: (
-  "mobile": 768px,
-  "tablet": 1024px,
-  "desktop": 1290px,
-  "largeDesktop": 1440px,
+  'mobile': 768px,
+  'tablet': 1024px,
+  'desktop': 1290px,
+  'largeDesktop': 1440px,
 );
 
-$primary-font: "Coolvetica";
-$secondary-font: "Sequel 100 Wide 95";
+$primary-font: 'Coolvetica';
+$secondary-font: 'Sequel 100 Wide 95';
 
 :root {
-  --primary-font: "Coolvetica";
-  --secondary-font: "Sequel 100 Wide 95";
+  --p: 0;
+  --primary-font: 'Coolvetica';
+  --secondary-font: 'Sequel 100 Wide 95';
 
   --glassmorphism-shadow: rgba(0, 0, 0, 0.1);
   --glassmorphism-background: rgba(211, 217, 212, 0.05);
   --glassmorphism-outline: rgba(211, 217, 212, 0.19);
   --glassmorphism-gradient: linear-gradient(145deg, #bec3bf, #e2e8e3);
 
-  // First Palette
+  --text-color: #212a31;
+  --second-color: #2e3944;
+  --third-color: #124e66;
+  --fourth-color: #748d92;
+  --background-color: #d3d9d4;
+  --neumorphic-highlight: #c4cac5;
+  --neumorphic-contrast: #e2e8e3;
+  --neumorphic-inverted-highlight: #1f272e;
+  --neumorphic-inverted-contrast: #232d34;
+
+  // Alt Palette 1
   // --text-color: #17252A;
   // --second-color: #FEFFFF;
   // --third-color: #2B7A78;
@@ -35,7 +46,7 @@ $secondary-font: "Sequel 100 Wide 95";
   // --neumorphic-contrast: #e7fcfb;
   // --glassmorphism-background: rgba(222, 242, 241, 0.2);
   // --glassmorphism-outline: rgba(222, 242, 241, 0.19);
-  // Second Palette
+  // Alt Palette 2
   // --text-color: #501F3A;
   // --second-color: #CB2D6F;
   // --third-color: #0F292F;
@@ -45,17 +56,7 @@ $secondary-font: "Sequel 100 Wide 95";
   // --neumorphic-contrast: #dcdcdc;
   // --glassmorphism-background: rgba(204, 204, 204, 0.2);
   // --glassmorphism-outline: rgba(204, 204, 204, 0.19);
-  // Sixth Palette
-  --text-color: #212A31;
-  --second-color: #2E3944;
-  --third-color: #124E66;
-  --fourth-color: #748D92;
-  --background-color: #D3D9D4;
-  --neumorphic-highlight: #c4cac5;
-  --neumorphic-contrast: #e2e8e3;
-  --neumorphic-inverted-highlight: #1f272e;
-  --neumorphic-inverted-contrast: #232d34;
-  // Seventh Palette
+  // Alt Palette 3
   // --text-color: #3D52A0;
   // --second-color: #7091E6;
   // --third-color: #8697C4;
@@ -65,6 +66,4 @@ $secondary-font: "Sequel 100 Wide 95";
   // --neumorphic-contrast: #f9f4ff;
   // --glassmorphism-background: rgba(237, 232, 245, 0.2);
   // --glassmorphism-outline: rgba(237, 232, 245, 0.19);
-
-  --p: 0;
 }
