@@ -43,7 +43,12 @@ const translations = {
         provideQuestion: 'Vous devez fournir une question.',
         errorOccurred: `Une erreur s'est produite, veuillez recommencer plus tard.`,
         errorRecaptcha: `Une erreur s'est produite avec la validation anti-robot. Veuillez ressayer ou recharger la page.`,
-        disclaimer: `Je n'ai pas toutes les réponses et je ne peux répondre qu'à une seule réponse à la fois. Soyez respectueux, s'il vous plait.`,
+        disclaimer: `Je n'ai pas toutes les réponses et je ne peux répondre qu'à une seule réponse à la fois. La première requête peut être plus longue que les autres. Soyez respectueux, s'il vous plait.`,
+        errors: {
+          PROVIDE_QUESTION: 'Veuillez renseigner une question.',
+          ANTIBOT_FAILED: 'Échec de la vérification anti-robot.',
+          ERROR_DEFAULT: 'Une erreur est survenue avec le chatbot.',
+        },
       },
     },
     showcase: {

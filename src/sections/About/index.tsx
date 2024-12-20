@@ -64,21 +64,27 @@ const About = () => {
             if (token) {
               fetch(`${process.env.REACT_APP_CHATBOT_URL}/ask`, {
                 method: 'POST',
-                body: JSON.stringify({ question, lang }),
+                body: JSON.stringify({ question, lang, token }),
                 headers: {
                   'Content-Type': 'application/json',
                 },
               })
                 .then((response) => response.json())
-                .then((data: { answer: string }) => {
+                .then((data: { answer?: string; error?: string }) => {
+                  setIsLoading(false);
+                  if (data.error) {
+                    setAnswer('');
+                    setError(t(`sections.about.chatbot.errors.${data.error}`));
+                    return;
+                  }
                   if (data.answer) {
                     setAnswer(formatLinks(data.answer));
                   } else {
                     setAnswer(t('sections.about.chatbot.fallbackAnswer'));
                   }
-                  setIsLoading(false);
                 })
                 .catch((error) => {
+                  setAnswer('');
                   setError(t('sections.about.chatbot.errorOccurred'));
                   console.error('Error with chatbot:', error);
                   setIsLoading(false);
