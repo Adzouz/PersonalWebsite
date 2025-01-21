@@ -19,7 +19,7 @@ const translations = {
       title: 'Qui suis-je?',
       start: 'Brisons la glace!',
       'questions.0.question': 'Alors, qui es-tu?',
-      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (FR), et vivant actuellement à Montreal (CA) depuis décembre 2017. J'ai les deux citoyennetés.`,
+      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (France). J'ai deux citoyennetés: française et canadienne.`,
       'questions.1.question': 'Quelles langues parles-tu?',
       'questions.1.answer': `Le français est ma langue natale. Je parle couramment anglais et je parle un petit peu l'espagnol.`,
       'questions.2.question': 'Où as-tu étudié?',

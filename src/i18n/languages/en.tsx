@@ -22,7 +22,7 @@ const translations = {
       title: 'Get to know me',
       start: `Let's start the conversation!`,
       'questions.0.question': 'So, who are you?',
-      'questions.0.answer': `I'm a front-end developer from Lille (FR), currently based in Montreal (CA) since december 2017. I have both citizenships.`,
+      'questions.0.answer': `I'm a french front-end developer from Lille (France). I am both French and Canadian.`,
       'questions.1.question': 'Which languages do you speak?',
       'questions.1.answer': `French is my native language. I have a pretty good level in English and I speak a bit of Spanish.`,
       'questions.2.question': 'Where did you study?',

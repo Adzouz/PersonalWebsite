@@ -1,6 +1,6 @@
 // Components
 import AppearOnScroll from '../../components/AppearOnScroll';
-import TiltElement from '../../components/TiltElement';
+// import TiltElement from '../../components/TiltElement';
 import WorldMap from '../../components/WorldMap';
 
 // Styles
@@ -13,13 +13,13 @@ const Map = () => {
         <span className={styles.shapeContainer} />
         <div className={styles.worldMap}>
           <WorldMap />
-          <div className={styles.cityContainer}>
+          {/* <div className={styles.cityContainer}>
             <TiltElement>
               <div className={styles.city}>
                 <span>Montreal, CA</span>
               </div>
             </TiltElement>
-          </div>
+          </div> */}
         </div>
       </section>
     </AppearOnScroll>

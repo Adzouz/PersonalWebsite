@@ -29,26 +29,26 @@
     position: relative;
     z-index: 2;
   }
-  .shapeContainer {
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    opacity: 0.8;
-    background-image: url("../../assets/bg-map.svg");
-    background-position: 50% 100%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+  // .shapeContainer {
+  //   display: flex;
+  //   align-items: flex-end;
+  //   position: absolute;
+  //   z-index: 1;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   overflow: hidden;
+  //   opacity: 0.8;
+  //   background-image: url("../../assets/bg-map.svg");
+  //   background-position: 50% 100%;
+  //   background-size: 100% auto;
+  //   background-repeat: no-repeat;
 
-    @include min('tablet') {
-      opacity: 1;
-    }
-  }
+  //   @include min('tablet') {
+  //     opacity: 1;
+  //   }
+  // }
 }
 
 .worldMap {
