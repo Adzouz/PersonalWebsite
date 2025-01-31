@@ -17,7 +17,7 @@ const Contact = () => {
     {
       name: 'Github',
       icon: SocialGithub,
-      url: 'https://www.linkedin.com/in/adrienlepoutre',
+      url: 'https://github.com/Adzouz',
     },
     {
       name: 'LinkedIn',
