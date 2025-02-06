@@ -1,54 +1,15 @@
-#map {
+.mapContainer {
+  padding-top: 4rem;
   padding-bottom: 4rem;
-  position: relative;
-  overflow: hidden;
 
   @include min('tablet') {
+    padding-top: 6rem;
     padding-bottom: 6rem;
-  }
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 150vw;
-    height: 150vw;
-    border-radius: 75vw;
-    filter: blur(20vw);
-    background-color: var(--third-color);
-    transform: translate(-50%, 90%);
-    opacity: 0.3;
-    z-index: 1;
-
-    @include min('tablet') {
-      filter: blur(150vw);
-      opacity: 0.2;
-    }
   }
   > * {
     position: relative;
     z-index: 2;
   }
-  // .shapeContainer {
-  //   display: flex;
-  //   align-items: flex-end;
-  //   position: absolute;
-  //   z-index: 1;
-  //   left: 0;
-  //   right: 0;
-  //   top: 0;
-  //   bottom: 0;
-  //   overflow: hidden;
-  //   opacity: 0.8;
-  //   background-image: url("../../assets/bg-map.svg");
-  //   background-position: 50% 100%;
-  //   background-size: 100% auto;
-  //   background-repeat: no-repeat;
-
-  //   @include min('tablet') {
-  //     opacity: 1;
-  //   }
-  // }
 }
 
 .worldMap {

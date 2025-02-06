@@ -1,19 +1,6 @@
-.container {
+section.section {
   position: relative;
 
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   width: 1000vw;
-  //   height: 1000vw;
-  //   border-radius: 500vw;
-  //   background-color: var(--background-color);
-  //   top: -3rem;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   z-index: 1;
-  //   box-shadow: 0 0 10rem rgba(0, 0, 0, 0.1);
-  // }
   > * {
     position: relative;
     z-index: 2;

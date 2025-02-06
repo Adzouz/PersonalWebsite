@@ -4,6 +4,7 @@ const translations = {
     about: 'A propos',
     showcase: 'Vitrine',
     contact: 'Contact',
+    menu: 'Menu',
   },
   sections: {
     hero: {
@@ -35,7 +36,7 @@ const translations = {
       'questions.4.answer': `Je conçois des composants et des micro-applications réutilisables. L'objectif est d'harmoniser l'expérience utilisateur entre les différentes plateformes (PC et web).`,
       'questions.5.question':
         'Quelles sont les technologies que tu utilises au quotidien dans ton travail?',
-      'questions.5.answer': `Je travaille avec React et je développe des micro-frontends dans des architectures en monorepo (avec Turborepo et Vite). J'ai aussi de solides connaissances en design avec Sass et travaille sur SFCC (Salesforce Commerce Cloud).`,
+      'questions.5.answer': `Je travaille avec React et Typescript. Je développe des micro-frontends dans des architectures en monorepo (avec Turborepo et Vite). J'ai aussi de solides connaissances en design avec Sass et travaille sur SFCC (Salesforce Commerce Cloud). Ainsi que des tests unitaires (avec Jest).`,
       chatbot: {
         placeholder: 'Posez votre question...',
         fallbackAnswer: `Je n'ai pas bien compris la question ou je n'ai malheureusement pas la réponse. Veuillez reformuler.`,

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 // Components
 import AppearOnScroll from '../../components/AppearOnScroll';
+import Map from '../Map';
 import SocialGithub from '../../components/Social/Github';
 import SocialLinkedIn from '../../components/Social/LinkedIn';
 import SocialX from '../../components/Social/X';
@@ -31,8 +32,8 @@ const Contact = () => {
     },
   ];
   return (
-    <AppearOnScroll>
-      <section id="contact">
+    <section id="contact" className={styles.section}>
+      <AppearOnScroll>
         <h2>{t('sections.contact.title')}</h2>
         <ul className={styles.list}>
           {socialLinks.map((link) => (
@@ -44,8 +45,9 @@ const Contact = () => {
             </li>
           ))}
         </ul>
-      </section>
-    </AppearOnScroll>
+      </AppearOnScroll>
+      <Map />
+    </section>
   );
 };
 

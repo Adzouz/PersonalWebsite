@@ -4,10 +4,21 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
 // Components
-import { FranceFlag, UKFlag } from '../Languages';
+import { FranceFlag, SpainFlag, UKFlag } from '../Languages';
 
 // Styles
 import styles from './Navbar.module.scss';
+
+const getLangFlag = (lang: string) => {
+  switch (lang) {
+    case 'fr':
+      return <FranceFlag />;
+    case 'es':
+      return <SpainFlag />;
+    default:
+      return <UKFlag />;
+  }
+};
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -15,7 +26,13 @@ const Navbar = () => {
   const [showBackground, setShowBackground] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
 
-  const lang = i18n.language;
+  const currentLang = i18n.language;
+  const availableLanguages = Array.isArray(i18n.options.supportedLngs)
+    ? i18n.options.supportedLngs?.filter((lang) => lang !== 'cimode')
+    : [];
+  const otherLanguages = availableLanguages.filter(
+    (lang) => lang !== currentLang
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,7 +61,7 @@ const Navbar = () => {
         onClick={() => setShowMobileMenu(!showMobileMenu)}
         className={styles.mobileMenuButton}
       >
-        MENU
+        {t('navbar.menu')}
       </button>
       <ul className={clsx([styles.left, showMobileMenu && styles.visible])}>
         <li>
@@ -62,17 +79,18 @@ const Navbar = () => {
       </ul>
       <div className={styles.right}>
         <button onClick={() => setShowLanguages(!showLanguages)}>
-          {lang === 'fr' ? <FranceFlag /> : <UKFlag />} {lang.toUpperCase()}
+          {getLangFlag(currentLang)} {currentLang.toUpperCase()}
         </button>
         <ul
           className={clsx([styles.listLanguages, showLanguages && styles.show])}
         >
-          <li>
-            <a href={`/${lang === 'fr' ? 'en' : 'fr'}`}>
-              {lang === 'fr' ? <UKFlag /> : <FranceFlag />}{' '}
-              {lang === 'fr' ? 'EN' : 'FR'}
-            </a>
-          </li>
+          {otherLanguages.map((lang) => (
+            <li key={`flag_${lang}`}>
+              <a href={`/${lang}`}>
+                {getLangFlag(lang)} {lang.toUpperCase()}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
