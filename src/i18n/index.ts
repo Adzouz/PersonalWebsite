@@ -1,11 +1,16 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import en from './languages/en.tsx';
-import fr from './languages/fr.tsx';
+import en from './languages/en';
+import es from './languages/es';
+import fr from './languages/fr';
 
 const initTranslations = () => {
-  const language = window.location.pathname.includes('/en') ? 'en' : 'fr';
+  const availableLanguages = ['en', 'es', 'fr'];
+  const defaultLanguage = availableLanguages[0];
+
+  const pathParts = location.pathname.split('/');
+  const selectedLanguage = pathParts.find((part) => availableLanguages.includes(part)) || defaultLanguage;
 
   i18n
     .use(initReactI18next)
@@ -16,14 +21,20 @@ const initTranslations = () => {
             ...en
           }
         },
+        es: {
+          translation: {
+            ...es
+          }
+        },
         fr: {
           translation: {
             ...fr
           }
         }
       },
-      lng: language,
-      fallbackLng: 'en',
+      supportedLngs: availableLanguages,
+      lng: selectedLanguage,
+      fallbackLng: defaultLanguage,
       interpolation: {
         escapeValue: false,
       },

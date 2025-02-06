@@ -13,7 +13,7 @@ const Hero = () => {
   const { t } = useTranslation();
   return (
     <AppearOnScroll>
-      <section className={styles.container} id={styles.hero}>
+      <section id="hero" className={styles.section}>
         <span className={styles.background} />
         <BackgroundShape />
         <TiltElement>

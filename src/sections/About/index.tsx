@@ -106,7 +106,7 @@ const About = () => {
 
   return (
     <AppearOnScroll>
-      <section id="about" className={styles.container}>
+      <section id="about" className={styles.section}>
         <h2>{t('sections.about.title')}</h2>
         <p>{t('sections.about.start')}</p>
         <BackgroundShape />

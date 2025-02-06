@@ -409,8 +409,7 @@ const Showcase = () => {
 
   return (
     <AppearOnScroll>
-      <span id="showcase" />
-      <section id={styles.showcase}>
+      <section id="showcase" className={styles.section}>
         <h2>{t('sections.showcase.title')}</h2>
         {projects.map((project) => (
           <AppearOnScroll key={`project_category_${project.category}`}>

@@ -7,6 +7,7 @@ const translations = {
     about: 'About',
     showcase: 'Showcase',
     contact: 'Contact',
+    menu: 'Menu',
   },
   sections: {
     hero: {
@@ -38,7 +39,7 @@ const translations = {
       'questions.4.answer': `I develop reusable components and micro apps. The goal is to provide a better unified experience for the users across different platforms (PC and web).`,
       'questions.5.question':
         'Which tech do you use in your professional work?',
-      'questions.5.answer': `I'm working with React and develop micro frontends in monorepo architecture (with Turborepo and Vite). I'm also have strong skills in styling (Sass) and working a bit with SFCC (Salesforce Commerce Cloud).`,
+      'questions.5.answer': `I'm working with React and Typescript, I develop micro frontends in monorepo architecture (with Turborepo and Vite). I'm also have strong skills in styling (Sass) and working a bit with SFCC (Salesforce Commerce Cloud) and unit tests (with Jest).`,
       chatbot: {
         placeholder: 'Type your question...',
         fallbackAnswer: `I didn't get or I can't answer the question. Please rephrase and ask again.`,

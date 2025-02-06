@@ -85,7 +85,7 @@ const TrustedClients = () => {
   ];
   return (
     <AppearOnScroll>
-      <section id="clients" className={styles.container}>
+      <section id="clients" className={styles.section}>
         <h2>{t('sections.trustedClients.title')}</h2>
         <div className={styles.listContainer}>
           <ul className={styles.list}>

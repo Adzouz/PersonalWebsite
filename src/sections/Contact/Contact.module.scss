@@ -1,51 +1,79 @@
-.list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+section.section {
+  position: relative;
+  overflow: hidden;
 
-  @include min('tablet') {
-    margin: 2rem 0 0;
+  > * {
+    position: relative;
+    z-index: 2;
   }
-  li {
-    width: 22rem;
-    padding: 2rem 2rem 0;
-    text-align: center;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 150vw;
+    height: 150vw;
+    border-radius: 75vw;
+    filter: blur(20vw);
+    background-color: var(--third-color);
+    transform: translate(-50%, 90%);
+    opacity: 0.3;
+    z-index: 1;
 
-    a {
-      outline: 0;
-      border: 0;
-      font-weight: normal;
-      text-decoration: none;
-      color: var(--fourth-color);
+    @include min('tablet') {
+      filter: blur(150vw);
+      opacity: 0.2;
+    }
+  }
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
-      @media (hover: hover) {
-        &:hover {
-          span {
-            @include buttonHover;
+    @include min('tablet') {
+      margin: 2rem 0 0;
+    }
+    li {
+      width: 22rem;
+      padding: 2rem 2rem 0;
+      text-align: center;
+
+      a {
+        outline: 0;
+        border: 0;
+        font-weight: normal;
+        text-decoration: none;
+        color: var(--fourth-color);
+
+        @media (hover: hover) {
+          &:hover {
+            span {
+              @include buttonHover;
+            }
           }
         }
-      }
-      &:focus-visible {
-        span {
-          @include buttonFocus;
+        &:focus-visible {
+          span {
+            @include buttonFocus;
+          }
         }
-      }
-      span {
-        display: block;
-        margin-top: 2rem;
-        font-size: 1.5rem;
-        @include button;
-      }
-      svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        max-width: 20rem;
-        max-height: 5rem;
+        span {
+          display: block;
+          margin-top: 2rem;
+          font-size: 1.5rem;
+          @include button;
+        }
+        svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-width: 20rem;
+          max-height: 5rem;
+        }
       }
     }
   }
