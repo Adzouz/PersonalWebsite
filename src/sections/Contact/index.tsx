@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next';
 // Components
 import AppearOnScroll from '../../components/AppearOnScroll';
 import Map from '../Map';
-import SocialGithub from '../../components/Social/Github';
 import SocialLinkedIn from '../../components/Social/LinkedIn';
-import SocialX from '../../components/Social/X';
 
 // Styles
 import styles from './Contact.module.scss';
@@ -16,19 +14,9 @@ const Contact = () => {
   const { t } = useTranslation();
   const socialLinks = [
     {
-      name: 'Github',
-      icon: SocialGithub,
-      url: 'https://github.com/Adzouz',
-    },
-    {
       name: 'LinkedIn',
       icon: SocialLinkedIn,
       url: 'https://www.linkedin.com/in/adrienlepoutre',
-    },
-    {
-      name: 'X',
-      icon: SocialX,
-      url: 'https://x.com/TheWebsDoor',
     },
   ];
   return (
