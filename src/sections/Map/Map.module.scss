@@ -27,11 +27,18 @@
   .cityContainer {
     position: absolute;
     top: 20%;
-    left: 35%;
+    left: 49%;
 
+    @include min('tablet') {
+      top: 23%;
+    }
+    @include min('desktop') {
+      top: 20%;
+      left: 48%;
+    }
     .city {
       @include glassmorphism;
-      padding: 0 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 1rem;
       color: var(--text-color);
       font-size: 0.75rem;
@@ -39,10 +46,9 @@
       font-family: var(--secondary-font);
 
       @include min('tablet') {
-        padding: 0.5rem 1rem;
         font-size: 1rem;
       }
-      @include min('xlargeDesktop') {
+      @include min('desktop') {
         padding: 1rem 1.5rem;
         font-size: 1.5rem;
       }

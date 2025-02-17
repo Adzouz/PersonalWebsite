@@ -23,7 +23,7 @@ const translations = {
       title: 'Get to know me',
       start: `Let's start the conversation!`,
       'questions.0.question': 'So, who are you?',
-      'questions.0.answer': `I'm a french front-end developer from Lille (France). I am both French and Canadian.`,
+      'questions.0.answer': `I'm a french front-end developer from Lille (France). I spent 7 years in Montreal (CA) and now I live in Madrid (SP).<br />I have both French and Canadian citizenships.`,
       'questions.1.question': 'Which languages do you speak?',
       'questions.1.answer': `French is my native language. I have a pretty good level in English and I speak a bit of Spanish.`,
       'questions.2.question': 'Where did you study?',
@@ -71,6 +71,9 @@ const translations = {
     contact: {
       title: 'Want to reach me?',
     },
+    map: {
+      city: 'Madrid, Spain'
+    }
   },
 };
 

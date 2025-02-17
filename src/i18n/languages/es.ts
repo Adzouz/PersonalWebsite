@@ -23,7 +23,7 @@ const translations = {
         title: 'Conóceme',
         start: '¡Empecemos la conversación!',
         'questions.0.question': 'Entonces, ¿quién eres?',
-        'questions.0.answer': 'Soy un desarrollador front-end francés de Lille (Francia). Soy francés y canadiense.',
+        'questions.0.answer': 'Soy un desarrollador front-end francés de Lille (Francia). Viví en Montréal (CA) durante 7 años y ahora vivo en Madrid (ES).<br />Tengo nacionalidad francesa y canadiense.',
         'questions.1.question': '¿Qué idiomas hablas?',
         'questions.1.answer': 'El francés es mi lengua materna. Tengo un nivel bastante bueno de inglés y hablo un poquito de español.',
         'questions.2.question': '¿Dónde estudiaste?',
@@ -71,6 +71,9 @@ const translations = {
       contact: {
         title: '¿Quieres contactarme?',
       },
+      map: {
+        city: 'Madrid, España'
+      }
     },
   };
 

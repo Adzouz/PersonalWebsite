@@ -1,6 +1,7 @@
 section.section {
   position: relative;
   overflow: hidden;
+  max-width: 100%;
 
   > * {
     position: relative;
