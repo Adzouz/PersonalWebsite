@@ -33,6 +33,7 @@
     max-width: 120rem;
     padding: 4rem 0 0;
     margin: auto;
+    position: relative;
 
     @include min('desktop') {
       padding: 6rem 2rem 0;

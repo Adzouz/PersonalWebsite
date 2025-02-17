@@ -20,7 +20,7 @@ const translations = {
       title: 'Qui suis-je?',
       start: 'Brisons la glace!',
       'questions.0.question': 'Alors, qui es-tu?',
-      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (France). J'ai deux citoyennetés: française et canadienne.`,
+      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (France). J'ai vécu 7 ans à Montréal (CA) et je vis maintenant à Madrid (SP).<br />J'ai les deux nationalités française et canadienne.`,
       'questions.1.question': 'Quelles langues parles-tu?',
       'questions.1.answer': `Le français est ma langue natale. Je parle couramment anglais et je parle un petit peu l'espagnol.`,
       'questions.2.question': 'Où as-tu étudié?',
@@ -67,6 +67,9 @@ const translations = {
     contact: {
       title: 'Comment me joindre',
     },
+    map: {
+      city: 'Madrid, ES'
+    }
   },
 };
 
