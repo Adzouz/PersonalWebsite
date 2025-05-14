@@ -32,11 +32,9 @@ const translations = {
       </ul>`,
       'questions.3.question': 'Où travailles-tu actuellement?',
       'questions.3.answer': `Je travaille à Ubisoft, une compagnie française qui développe des jeux vidéo. Je suis dans l'équipe E-commerce et je travaille essentiellement sur la boutique en ligne et sur le client PC Ubisoft Connect.`,
-      'questions.4.question': 'En quoi consiste ton travail?',
-      'questions.4.answer': `Je conçois des composants et des micro-applications réutilisables. L'objectif est d'harmoniser l'expérience utilisateur entre les différentes plateformes (PC et web).`,
-      'questions.5.question':
+      'questions.4.question':
         'Quelles sont les technologies que tu utilises au quotidien dans ton travail?',
-      'questions.5.answer': `Je travaille avec React et Typescript. Je développe des micro-frontends dans des architectures en monorepo (avec Turborepo et Vite). J'ai aussi de solides connaissances en design avec Sass et travaille sur SFCC (Salesforce Commerce Cloud). Ainsi que des tests unitaires (avec Jest).`,
+      'questions.4.answer': `Je travaille avec React et Typescript. J'ai aussi de solides connaissances en design avec Sass. J'ai également quelques connaissances en tests unitaires (avec Jest ou encore Testing Library).`,
       chatbot: {
         placeholder: 'Posez votre question...',
         fallbackAnswer: `Je n'ai pas bien compris la question ou je n'ai malheureusement pas la réponse. Veuillez reformuler.`,
@@ -68,8 +66,8 @@ const translations = {
       title: 'Comment me joindre',
     },
     map: {
-      city: 'Madrid, ES'
-    }
+      city: 'Madrid, ES',
+    },
   },
 };
 
