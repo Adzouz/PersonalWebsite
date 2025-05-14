@@ -11,7 +11,7 @@ import {
   SpainFlag,
   UKFlag,
 } from '../../components/Languages';
-import { SUPINFOLogo, UbisoftOnlineServicesLogo } from '../../components/Logos';
+import { SUPINFOLogo } from '../../components/Logos';
 import {
   ReactIcon,
   SassIcon,
@@ -73,20 +73,10 @@ const Questions = () => {
       {
         question: t(`${keyPrefix}.3.question`),
         answer: t(`${keyPrefix}.3.answer`),
-        itemType: 'logo',
-        items: [
-          {
-            element: <UbisoftOnlineServicesLogo />,
-          },
-        ],
       },
       {
         question: t(`${keyPrefix}.4.question`),
         answer: t(`${keyPrefix}.4.answer`),
-      },
-      {
-        question: t(`${keyPrefix}.5.question`),
-        answer: t(`${keyPrefix}.5.answer`),
         itemType: 'list',
         items: [
           {

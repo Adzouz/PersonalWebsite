@@ -34,12 +34,9 @@ const translations = {
         <li>B.Sc.2: PHP, Symfony, AJAX</li>
       </ul>`,
       'questions.3.question': 'Where are you currently working?',
-      'questions.3.answer': `I'm working at Ubisoft, a French company that develops video games. I'm mainly working for the online store and for the Ubisoft Connect PC client.`,
-      'questions.4.question': 'What do you do exactly?',
-      'questions.4.answer': `I develop reusable components and micro apps. The goal is to provide a better unified experience for the users across different platforms (PC and web).`,
-      'questions.5.question':
-        'Which tech do you use in your professional work?',
-      'questions.5.answer': `I'm working with React and Typescript, I develop micro frontends in monorepo architecture (with Turborepo and Vite). I'm also have strong skills in styling (Sass) and working a bit with SFCC (Salesforce Commerce Cloud) and unit tests (with Jest).`,
+      'questions.3.answer': `I'm working at Strapi, a French company that develops an opensource headless CMS.`,
+      'questions.4.question': 'Which tech do you use in your work?',
+      'questions.4.answer': `I work with React and Typescript. I also have a solid knowledge of design with Sass. I also have some knowledge of unit testing (with Jest or Testing Library).`,
       chatbot: {
         placeholder: 'Type your question...',
         fallbackAnswer: `I didn't get or I can't answer the question. Please rephrase and ask again.`,
@@ -72,8 +69,8 @@ const translations = {
       title: 'Want to reach me?',
     },
     map: {
-      city: 'Madrid, Spain'
-    }
+      city: 'Madrid, Spain',
+    },
   },
 };
 
