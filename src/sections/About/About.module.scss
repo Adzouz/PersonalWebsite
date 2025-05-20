@@ -316,6 +316,24 @@ section.section {
       }
     }
   }
+  .button {
+    margin-top: 2rem;
+
+    a {
+      @include button;
+      & {
+        text-decoration: none;
+      }
+      @media (hover: hover) {
+        &:hover {
+          @include buttonHover;
+        }
+      }
+      &:focus-visible {
+        @include buttonFocus;
+      }
+    }
+  }
 }
 
 @keyframes dotAnimation {

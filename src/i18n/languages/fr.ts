@@ -49,6 +49,7 @@ const translations = {
           ERROR_DEFAULT: 'Une erreur est survenue avec le chatbot.',
         },
       },
+      downloadCV: 'Télécharger mon CV',
     },
     showcase: {
       title: 'Vitrine',

@@ -60,6 +60,7 @@ const translations = {
           ERROR_DEFAULT: 'Error en la API del chatbot.',
         },
       },
+      downloadCV: 'Descargar mi CV',
     },
     showcase: {
       title: 'Portafolio',
