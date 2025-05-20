@@ -8,9 +8,9 @@ import FondsFTQLogo from './FondsFTQ';
 import HobbynoteLogo from './Hobbynote';
 import M6Logo from './M6';
 import UbisoftLogo from './Ubisoft';
-import UbisoftOnlineServicesLogo from './UbisoftOnlineServices';
 import PublicisLogo from './Publicis';
 import ResistoLogo from './Resisto';
+import StrapiLogo from './Strapi';
 import SUPINFOLogo from './SUPINFO';
 import TheBookEditionLogo from './TheBookEdition';
 import ViaRailLogo from './ViaRail';
@@ -26,9 +26,9 @@ export {
   HobbynoteLogo,
   M6Logo,
   UbisoftLogo,
-  UbisoftOnlineServicesLogo,
   PublicisLogo,
   ResistoLogo,
+  StrapiLogo,
   SUPINFOLogo,
   TheBookEditionLogo,
   ViaRailLogo,

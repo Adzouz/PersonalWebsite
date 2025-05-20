@@ -19,6 +19,7 @@ const About = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [questionFocused, setQuestionFocused] = useState(false);
+  const currentLang = i18n.language;
 
   const recaptchaSiteKey = process.env
     .REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY as string;
@@ -170,6 +171,14 @@ const About = () => {
             </li>
           )}
         </ul>
+        <div className={styles.button}>
+          <a
+            href={`https://medias.thewebsdoor.com/resume-public-${currentLang}.pdf`}
+            target="_blank"
+          >
+            {t('sections.about.downloadCV')}
+          </a>
+        </div>
       </section>
     </AppearOnScroll>
   );

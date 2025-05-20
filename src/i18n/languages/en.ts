@@ -34,9 +34,9 @@ const translations = {
         <li>B.Sc.2: PHP, Symfony, AJAX</li>
       </ul>`,
       'questions.3.question': 'Where are you currently working?',
-      'questions.3.answer': `I'm working at Strapi, a French company that develops an opensource headless CMS.`,
+      'questions.3.answer': `I'm working at Strapi, a French company that develops an open-source headless CMS.`,
       'questions.4.question': 'Which tech do you use in your work?',
-      'questions.4.answer': `I work with React and Typescript. I also have a solid knowledge of design with Sass. I also have some knowledge of unit testing (with Jest or Testing Library).`,
+      'questions.4.answer': `I work with React, React Native and Typescript. I also have a solid knowledge in design with Sass and a bit in unit testing (with Jest and Testing Library).`,
       chatbot: {
         placeholder: 'Type your question...',
         fallbackAnswer: `I didn't get or I can't answer the question. Please rephrase and ask again.`,
@@ -52,6 +52,7 @@ const translations = {
           ERROR_DEFAULT: 'Error from the chatbot API.',
         },
       },
+      downloadCV: 'Download my CV',
     },
     showcase: {
       title: 'Showcase',

@@ -11,14 +11,8 @@ import {
   SpainFlag,
   UKFlag,
 } from '../../components/Languages';
-import { SUPINFOLogo } from '../../components/Logos';
-import {
-  ReactIcon,
-  SassIcon,
-  SFCCIcon,
-  TurborepoIcon,
-  ViteIcon,
-} from '../../components/Icons';
+import { StrapiLogo, SUPINFOLogo } from '../../components/Logos';
+import { ReactIcon, SassIcon, ViteIcon } from '../../components/Icons';
 
 // Styles
 import styles from './About.module.scss';
@@ -73,6 +67,12 @@ const Questions = () => {
       {
         question: t(`${keyPrefix}.3.question`),
         answer: t(`${keyPrefix}.3.answer`),
+        itemType: 'logo',
+        items: [
+          {
+            element: <StrapiLogo />,
+          },
+        ],
       },
       {
         question: t(`${keyPrefix}.4.question`),
@@ -87,12 +87,6 @@ const Questions = () => {
           },
           {
             element: <SassIcon />,
-          },
-          {
-            element: <TurborepoIcon />,
-          },
-          {
-            element: <SFCCIcon />,
           },
         ],
       },
