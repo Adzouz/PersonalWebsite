@@ -1,13 +1,12 @@
 // Libraries
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
 
 // Components
 import AppearOnScroll from '../../components/AppearOnScroll';
 import BackgroundShape from './BackgroundShape';
+import Chatbot from '../../components/Chatbot';
 import Questions from './Questions';
-import { ClearIcon } from '../../components/Icons';
 
 // Styles
 import styles from './About.module.scss';
@@ -18,23 +17,12 @@ const About = () => {
   const [answer, setAnswer] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [questionFocused, setQuestionFocused] = useState(false);
   const currentLang = i18n.language;
 
   const recaptchaSiteKey = process.env
     .REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY as string;
 
   const lang = i18n.language;
-
-  const loadRecaptchaScript = () => {
-    const scriptUrl = 'https://www.google.com/recaptcha/api.js';
-    if (!document.querySelector(`script[src^="${scriptUrl}"]`)) {
-      const script = document.createElement('script');
-      script.src = `${scriptUrl}?render=${recaptchaSiteKey}`;
-      script.defer = true;
-      document.body.appendChild(script);
-    }
-  };
 
   const formatLinks = (text: string) => {
     const urlRegex = /([hH]ttps?:\/\/[^\s]+)/g;
@@ -46,6 +34,8 @@ const About = () => {
   const resetAll = () => {
     setQuestion('');
     setAnswer('');
+    setIsLoading(false);
+    setError(null);
   };
 
   const handleAsk = async () => {
@@ -100,11 +90,6 @@ const About = () => {
     }
   };
 
-  const handleFocus = () => {
-    loadRecaptchaScript();
-    setQuestionFocused(true);
-  };
-
   return (
     <AppearOnScroll>
       <section id="about" className={styles.section}>
@@ -113,63 +98,15 @@ const About = () => {
         <BackgroundShape />
         <ul className={styles.messages}>
           <Questions />
-          <li
-            className={clsx([
-              styles.chatbotQuestion,
-              (questionFocused || question) && styles.chatbotQuestionFocused,
-            ])}
-          >
-            <div className={styles.questionInput}>
-              <div className={styles.textareaContainer}>
-                <textarea
-                  placeholder={t('sections.about.chatbot.placeholder')}
-                  onInput={(e) => setQuestion(e.currentTarget.value)}
-                  value={question}
-                  onFocus={() => handleFocus()}
-                  onBlur={() => setQuestionFocused(false)}
-                />
-              </div>
-              {error ? (
-                <div className={styles.errorMessage}>{error}</div>
-              ) : (
-                <div className={styles.infoMessage}>
-                  {t('sections.about.chatbot.disclaimer')}
-                </div>
-              )}
-            </div>
-            <div className={styles.buttons}>
-              {question && (
-                <button onClick={() => handleAsk()}>
-                  {t('sections.about.chatbot.ask')}
-                </button>
-              )}
-              {question && (
-                <button onClick={() => resetAll()}>
-                  <ClearIcon />
-                </button>
-              )}
-            </div>
-            <div className={styles.recaptcha}>
-              <div
-                className="g-recaptcha"
-                data-sitekey={recaptchaSiteKey}
-                data-size="invisible"
-              ></div>
-            </div>
-          </li>
-          {(isLoading || answer) && (
-            <li className={clsx([styles.answer, styles.answerBot])}>
-              {isLoading ? (
-                <div className={styles.loading}>
-                  <span className={styles.dot} />
-                  <span className={styles.dot} />
-                  <span className={styles.dot} />
-                </div>
-              ) : (
-                <div dangerouslySetInnerHTML={{ __html: answer }} />
-              )}
-            </li>
-          )}
+          <Chatbot
+            answer={answer}
+            error={error}
+            handleAsk={handleAsk}
+            isLoading={isLoading}
+            question={question}
+            resetAll={resetAll}
+            setQuestion={setQuestion}
+          />
         </ul>
         <div className={styles.button}>
           <a

@@ -45,7 +45,7 @@ const translations = {
         errorOccurred: `An error occurred, please try again later.`,
         errorRecaptcha:
           'Something went wrong with the anti-bot verification. Please try again or refresh the page.',
-        disclaimer: `I don't have all answers and can only answer to one question at a time. The first request could be a bit longer to process. Please be respectful.`,
+        disclaimer: `I don't have all answers and can only answer to one question at a time. Please be respectful.`,
         errors: {
           PROVIDE_QUESTION: 'Please enter a question.',
           ANTIBOT_FAILED: 'Anti-robot validation failed.',
