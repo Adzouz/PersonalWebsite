@@ -53,7 +53,7 @@ const translations = {
         errorRecaptcha:
           'Algo ha ido mal con la verificación anti-bot. Por favor, inténtalo de nuevo o actualiza la página.',
         disclaimer:
-          'No tengo todas las respuestas y solo puedo responder una pregunta a la vez. La primera solicitud puede tardar un poco más en procesarse. Por favor sé respetuoso.',
+          'No tengo todas las respuestas y solo puedo responder una pregunta a la vez. Por favor sé respetuoso.',
         errors: {
           PROVIDE_QUESTION: 'Por favor, introduce una pregunta.',
           ANTIBOT_FAILED: 'La validación anti-robot ha fallado.',
