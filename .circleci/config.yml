@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Deploy to server
           command: |
-            scp -o StrictHostKeyChecking=no -r ./dist/* ubuntu@ec2-54-82-231-192.compute-1.amazonaws.com:/var/www/html/thewebsdoor-new
+            scp -o StrictHostKeyChecking=no -r ./dist/* ubuntu@ec2-98-88-216-77.compute-1.amazonaws.com:/var/www/html/thewebsdoor-new
 
 workflows:
   version: 2
