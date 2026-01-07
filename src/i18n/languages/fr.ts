@@ -67,7 +67,7 @@ const translations = {
       title: 'Comment me joindre',
     },
     map: {
-      city: 'Madrid, ES',
+      city: 'Bretagne, FR',
     },
   },
 };
