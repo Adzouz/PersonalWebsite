@@ -70,7 +70,7 @@ const translations = {
       title: 'Want to reach me?',
     },
     map: {
-      city: 'Madrid, Spain',
+      city: 'Brittany, FR',
     },
   },
 };
