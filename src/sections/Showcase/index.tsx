@@ -297,7 +297,7 @@ const Showcase = () => {
         {
           name: 'Pokedex GO',
           image: 'pokedex.jpg',
-          url: 'https://pokedex.alaqasar.com/',
+          url: 'https://pokedex.thewebsdoor.com/',
           active: true,
           year: 2021,
           projectType: ProjectType.Webapp,
@@ -310,7 +310,7 @@ const Showcase = () => {
         {
           name: 'Streetex',
           image: 'streetex.jpg',
-          url: 'https://streetex.alaqasar.com/',
+          url: 'https://streetex.thewebsdoor.com/',
           active: true,
           year: 2019,
           projectType: ProjectType.Webapp,
@@ -325,7 +325,7 @@ const Showcase = () => {
         {
           name: 'Kikadica',
           image: 'kikadica.jpg',
-          url: 'https://kikadica.alaqasar.com/',
+          url: 'https://kikadica.thewebsdoor.com/',
           active: true,
           year: 2016,
           projectType: ProjectType.Website,
