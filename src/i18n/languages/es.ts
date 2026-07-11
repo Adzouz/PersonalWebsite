@@ -24,7 +24,7 @@ const translations = {
       start: '¡Empecemos la conversación!',
       'questions.0.question': 'Entonces, ¿quién eres?',
       'questions.0.answer':
-        'Soy un desarrollador front-end francés de Lille (Francia). Viví en Montréal (CA) durante 7 años y ahora vivo en Madrid (ES).<br />Tengo nacionalidad francesa y canadiense.',
+        'Soy un desarrollador front-end francés de Lille (Francia). Viví en Montréal (CA) durante 7 años, un año en Madrid (ES) y ahora estoy de vuelta en Lille.<br />Tengo nacionalidad francesa y canadiense.',
       'questions.1.question': '¿Qué idiomas hablas?',
       'questions.1.answer':
         'El francés es mi lengua materna. Tengo un nivel bastante bueno de inglés y hablo un poquito de español.',
@@ -41,7 +41,7 @@ const translations = {
       'questions.4.question':
         '¿Qué tecnologias usas en tu trabajo profesional?',
       'questions.4.answer':
-        'Trabajo con React y Typescript. También tengo sólidos conocimientos de diseño con Sass. También tengo algunos conocimientos de pruebas unitarias (con Jest o Testing Library).',
+        'Trabajo con React y Typescript. Principalmente trabajando con herramientas y tecnologías de IA ahora (Claude, Cursor, etc.). También tengo sólidos conocimientos de diseño con Sass y algunos conocimientos de pruebas unitarias (con Jest o Testing Library).',
       chatbot: {
         placeholder: 'Escribe tu pregunta...',
         fallbackAnswer:

@@ -23,7 +23,7 @@ const translations = {
       title: 'Get to know me',
       start: `Let's start the conversation!`,
       'questions.0.question': 'So, who are you?',
-      'questions.0.answer': `I'm a french front-end developer from Lille (France). I spent 7 years in Montreal (CA) and now I live in Madrid (SP).<br />I have both French and Canadian citizenships.`,
+      'questions.0.answer': `I'm a french fullstack developer from Lille (France). I spent 7 years in Montreal (CA), almost a year in Madrid (SP) and now I'm back in Lille again.<br />I have both French and Canadian citizenships.`,
       'questions.1.question': 'Which languages do you speak?',
       'questions.1.answer': `French is my native language. I have a pretty good level in English and I speak a bit of Spanish.`,
       'questions.2.question': 'Where did you study?',
@@ -36,7 +36,7 @@ const translations = {
       'questions.3.question': 'Where are you currently working?',
       'questions.3.answer': `I'm working at Strapi, a French company that develops an open-source headless CMS.`,
       'questions.4.question': 'Which tech do you use in your work?',
-      'questions.4.answer': `I work with React, React Native and Typescript. I also have a solid knowledge in design with Sass and a bit in unit testing (with Jest and Testing Library).`,
+      'questions.4.answer': `I work with React, React Native and Typescript. Mainly with AI tools and technologies now (Claude, Cursor, etc.). I also have a solid knowledge in design with Sass and a bit in unit testing (with Jest and Testing Library).`,
       chatbot: {
         placeholder: 'Type your question...',
         fallbackAnswer: `I didn't get or I can't answer the question. Please rephrase and ask again.`,

@@ -20,7 +20,7 @@ const translations = {
       title: 'Qui suis-je?',
       start: 'Brisons la glace!',
       'questions.0.question': 'Alors, qui es-tu?',
-      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (France). J'ai vécu 7 ans à Montréal (CA) et je vis maintenant à Madrid (SP).<br />J'ai les deux nationalités française et canadienne.`,
+      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (France). J'ai vécu 7 ans à Montréal (CA), un an à Madrid (SP) et maintenant je suis de nouveau à Lille.<br />J'ai les deux nationalités française et canadienne.`,
       'questions.1.question': 'Quelles langues parles-tu?',
       'questions.1.answer': `Le français est ma langue natale. Je parle couramment anglais et je parle un petit peu l'espagnol.`,
       'questions.2.question': 'Où as-tu étudié?',
@@ -34,7 +34,7 @@ const translations = {
       'questions.3.answer': `Je travaille à Ubisoft, une compagnie française qui développe des jeux vidéo. Je suis dans l'équipe E-commerce et je travaille essentiellement sur la boutique en ligne et sur le client PC Ubisoft Connect.`,
       'questions.4.question':
         'Quelles sont les technologies que tu utilises au quotidien dans ton travail?',
-      'questions.4.answer': `Je travaille avec React et Typescript. J'ai aussi de solides connaissances en design avec Sass. J'ai également quelques connaissances en tests unitaires (avec Jest ou encore Testing Library).`,
+      'questions.4.answer': `Je travaille avec React et Typescript. Maintenant surtout avec des outils et technologies IA (Claude, Cursor, etc.). J'ai aussi de solides connaissances en design avec Sass et quelques connaissances en tests unitaires (avec Jest ou encore Testing Library).`,
       chatbot: {
         placeholder: 'Posez votre question...',
         fallbackAnswer: `Je n'ai pas bien compris la question ou je n'ai malheureusement pas la réponse. Veuillez reformuler.`,
