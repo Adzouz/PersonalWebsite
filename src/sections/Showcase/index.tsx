@@ -8,8 +8,11 @@ import ProjectCard from '../../components/ProjectCard';
 import {
   AngularJSIcon,
   BootstrapIcon,
+  CapacitorIcon,
   CSharpIcon,
   DrupalIcon,
+  ExpoIcon,
+  ElectronIcon,
   EZPublishIcon,
   GulpIcon,
   JavascriptIcon,
@@ -285,6 +288,34 @@ const Showcase = () => {
     {
       category: t('sections.showcase.activePersoProjects'),
       items: [
+        {
+          name: 'One More Show',
+          image: 'onemoreshow.jpg',
+          url: 'https://onemoreshow.app',
+          active: true,
+          year: 2026,
+          projectType: ProjectType.Mobile,
+          techList: [
+            <ExpoIcon />,
+            <ReactIcon />,
+            <TypescriptIcon />,
+            <StrapiIcon />,
+          ],
+        },
+        {
+          name: 'Parallels',
+          image: 'parallels.jpg',
+          url: 'https://parallels.thewebsdoor.com/',
+          active: true,
+          year: 2026,
+          projectType: ProjectType.Mobile,
+          techList: [
+            <ReactIcon />,
+            <CapacitorIcon />,
+            <ElectronIcon />,
+            <TypescriptIcon />,
+          ],
+        },
         {
           name: 'AidenClarkMusic.com',
           image: 'aidenclarkmusic.jpg',

@@ -78,7 +78,7 @@ const translations = {
       title: '¿Quieres contactarme?',
     },
     map: {
-      city: 'Bretaña, FR',
+      city: 'Lille, FR',
     },
   },
 };

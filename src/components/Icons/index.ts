@@ -1,8 +1,11 @@
 import AngularJSIcon from './AngularJS';
 import BootstrapIcon from './Bootstrap';
+import CapacitorIcon from './Capacitor';
 import ClearIcon from './Clear';
 import CSharpIcon from './CSharp';
 import DrupalIcon from './Drupal';
+import ElectronIcon from './Electron';
+import ExpoIcon from './Expo';
 import EZPublishIcon from './EZPublish';
 import GulpIcon from './Gulp';
 import JavascriptIcon from './Javascript';
@@ -30,9 +33,12 @@ import WordpressIcon from './Wordpress';
 export {
   AngularJSIcon,
   BootstrapIcon,
+  CapacitorIcon,
   ClearIcon,
   CSharpIcon,
   DrupalIcon,
+  ElectronIcon,
+  ExpoIcon,
   EZPublishIcon,
   GulpIcon,
   JavascriptIcon,
