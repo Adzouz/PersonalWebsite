@@ -39,7 +39,12 @@ section.section {
       top: 5%;
       bottom: 25%;
       left: 0;
-      right: 10%;
+      right: 0;
+    }
+    @include min('largeDesktop') {
+      top: 0;
+      bottom: 30%;
+      left: 25%;
     }
     svg {
       display: block;
@@ -65,15 +70,18 @@ section.section {
     z-index: 2;
     background-image: url('/images/me.webp');
     background-position: 50% 30%;
-    background-size: auto 70%;
+    background-size: auto 60%;
     background-repeat: no-repeat;
 
+    @include min('tablet') {
+      background-size: auto 70%;
+    }
     @include min('desktop') {
       background-position: 50% 50%;
       background-size: auto 80%;
     }
     @include min('largeDesktop') {
-      background-position: 15% 70%;
+      background-position: 8% 70%;
     }
     &::before {
       content: '';
