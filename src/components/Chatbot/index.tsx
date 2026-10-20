@@ -32,7 +32,7 @@ const ChatbotQuestion = ({
   const { t } = useTranslation();
   const [questionFocused, setQuestionFocused] = useState(false);
 
-  const recaptchaSiteKey = process.env
+  const recaptchaSiteKey = import.meta.env
     .REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY as string;
 
   const loadRecaptchaScript = () => {

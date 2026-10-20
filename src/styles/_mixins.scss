@@ -104,7 +104,7 @@
 
 @mixin glassmorphism {
   box-shadow: 0 4px 30px var(--glassmorphism-shadow);
-  backdrop-filter: blur(0.75rem);
   -webkit-backdrop-filter: blur(0.75rem);
+  backdrop-filter: blur(0.75rem);
   border: 2px solid var(--glassmorphism-outline);
 }

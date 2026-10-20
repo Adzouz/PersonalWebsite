@@ -16,7 +16,7 @@ const SEOModule = () => {
     : [];
   const links = availableLanguages.map((lang) => ({
     lang,
-    url: `${process.env.REACT_APP_SITE_URL}/${lang}`,
+    url: `${import.meta.env.REACT_APP_SITE_URL}/${lang}`,
   }));
   const currentUrl = window.location.origin + window.location.pathname;
 

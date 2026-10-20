@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# The Web's Door
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website of Adrien Lepoutre: [thewebsdoor.com](https://thewebsdoor.com).
 
-Currently, two official plugins are available:
+A single-page site built with React, TypeScript and Vite, showing a hero section, trusted clients, an "About" Q&A with an AI chatbot, a project showcase and contact links. Available in English, French and Spanish.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev) + [TypeScript 6](https://www.typescriptlang.org)
+- [Vite 8](https://vite.dev) (Rolldown-based) with `@vitejs/plugin-react`
+- [Sass](https://sass-lang.com) CSS Modules
+- [i18next](https://www.i18next.com) / `react-i18next` for translations
+- [react-helmet-async](https://github.com/staylor/react-helmet-async) for SEO meta tags
+- ESLint 10 (flat config), Prettier, Husky, lint-staged and commitlint
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Requirements
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js **24** (pinned with [Volta](https://volta.sh) in `package.json`)
+- npm 11+
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting started
+
+```bash
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The dev server listens on `0.0.0.0`, so you can also open it from other devices on your network.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Environment variables
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Create a `.env` file at the project root (it is git-ignored):
+
+```dotenv
+REACT_APP_SITE_URL=http://localhost:5173
+REACT_APP_CHATBOT_URL=http://localhost:5174
+REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY=your-recaptcha-key
 ```
+
+| Variable                              | Purpose                                                         |
+| ------------------------------------- | --------------------------------------------------------------- |
+| `REACT_APP_SITE_URL`                  | Base URL used for `hreflang` alternate links                    |
+| `REACT_APP_CHATBOT_URL`               | Chatbot backend. The site sends `POST {url}/ask` requests to it |
+| `REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 site key protecting the chatbot                    |
+
+Only variables prefixed with `VITE_` or `REACT_APP_` are exposed to the client, through `import.meta.env`. Never put secrets in them.
+
+## Scripts
+
+| Command             | Description                                 |
+| ------------------- | ------------------------------------------- |
+| `npm run dev`       | Start the Vite dev server                   |
+| `npm run build`     | Type-check and build to `dist/`             |
+| `npm run preview`   | Serve the production build locally          |
+| `npm run typecheck` | Run the TypeScript project build (`tsc -b`) |
+| `npm run lint`      | Lint with ESLint                            |
+| `npm run format`    | Format everything with Prettier             |
+
+## Project structure
+
+```
+public/            Static assets (fonts, images, project screenshots, robots/sitemap)
+src/
+  components/      Reusable UI (Navbar, Chatbot, ProjectCard, SVG icons/logos…)
+  sections/        Page sections rendered in order by App.tsx
+  i18n/            i18next setup + translations (en, fr, es)
+  styles/          Global Sass (variables, mixins, fonts, base)
+  types/           Shared TypeScript types
+```
+
+The language is picked from the URL path (`/en`, `/fr`, `/es`) and falls back to English.
+
+## Git hooks
+
+- **pre-commit**: lint-staged runs ESLint and Prettier on staged files
+- **commit-msg**: commitlint enforces [Conventional Commits](https://www.conventionalcommits.org)
+
+## Deployment
+
+- **Vercel**: `vercel.json` sets up SPA rewrites to `index.html` and cache headers.
+- **CircleCI**: `.circleci/config.yml` builds on every push and copies `dist/` to the EC2 server on `main`.

@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/node:22.12.0
+      - image: cimg/node:24.22.0
     steps:
       - checkout
       - restore_cache:
@@ -11,7 +11,7 @@ jobs:
             - node-modules-{{ checksum "package-lock.json" }}
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - save_cache:
           paths:
             - node_modules
@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     docker:
-      - image: cimg/node:22.12.0
+      - image: cimg/node:24.22.0
     steps:
       - attach_workspace:
           at: .

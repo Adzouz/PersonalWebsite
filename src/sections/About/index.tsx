@@ -19,7 +19,7 @@ const About = () => {
   const [error, setError] = useState<string | null>(null);
   const currentLang = i18n.language;
 
-  const recaptchaSiteKey = process.env
+  const recaptchaSiteKey = import.meta.env
     .REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY as string;
 
   const lang = i18n.language;
@@ -53,7 +53,7 @@ const About = () => {
           })
           .then((token) => {
             if (token) {
-              fetch(`${process.env.REACT_APP_CHATBOT_URL}/ask`, {
+              fetch(`${import.meta.env.REACT_APP_CHATBOT_URL}/ask`, {
                 method: 'POST',
                 body: JSON.stringify({ question, lang, token }),
                 headers: {
