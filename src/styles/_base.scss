@@ -1,10 +1,24 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 :root {
   font-family: var(--primary-font), sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
+  // Static glows, positioned against the whole page (not the viewport)
+  background-image:
+    radial-gradient(
+      circle min(60rem, 120vw) at 0 0,
+      var(--page-glow-color),
+      transparent
+    ),
+    radial-gradient(
+      circle min(60rem, 120vw) at 50% 100%,
+      var(--page-glow-color),
+      transparent
+    );
+  background-repeat: no-repeat;
+  min-height: 100%;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -12,8 +26,8 @@
 
   * {
     box-sizing: border-box;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
     &:focus-visible {
       outline-color: var(--text-color) !important;
@@ -49,7 +63,11 @@
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: linear-gradient(20deg, var(--text-color), var(--third-color));
+    background-image: linear-gradient(
+      20deg,
+      var(--text-color),
+      var(--third-color)
+    );
     line-height: 1.15;
     padding: 0 2rem;
 

@@ -35,6 +35,14 @@ $secondary-font: 'Sequel 100 Wide 95';
   --neumorphic-contrast: #e2e8e3;
   --neumorphic-inverted-highlight: #1f272e;
   --neumorphic-inverted-contrast: #232d34;
+  --glow-color: rgba(18, 78, 102, 0.04);
+  --page-glow-color: rgba(18, 78, 102, 0.2);
+  // Two-tone SVG icons and logos (src/components/Svg.module.scss)
+  --svg-dark-fill: var(--third-color);
+  --svg-light-fill: var(--fourth-color);
+  --strapi-logo-text: #212067;
+
+  color-scheme: light;
 
   // Alt Palette 1
   // --text-color: #17252A;
@@ -66,4 +74,33 @@ $secondary-font: 'Sequel 100 Wide 95';
   // --neumorphic-contrast: #f9f4ff;
   // --glassmorphism-background: rgba(237, 232, 245, 0.2);
   // --glassmorphism-outline: rgba(237, 232, 245, 0.19);
+}
+
+// Dark theme. Set on <html> by the inline script in index.html and by
+// ThemeToggle. Neumorphism needs a mid-dark (not black) background so both the
+// darker shadow and the lighter highlight stay visible.
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --glassmorphism-shadow: rgba(0, 0, 0, 0.3);
+  --glassmorphism-background: rgba(33, 42, 49, 0.05);
+  --glassmorphism-outline: rgba(211, 217, 212, 0.08);
+  --glassmorphism-gradient: linear-gradient(145deg, #1e262c, #26313a);
+
+  --text-color: #d3d9d4;
+  --second-color: #b9c3c9;
+  --third-color: #5aa9c4;
+  --fourth-color: #8aa3a8;
+  --background-color: #212a31;
+  --neumorphic-highlight: #182026;
+  --neumorphic-contrast: #2a353e;
+  // Used on text-color surfaces (focused buttons), so they mirror light mode
+  --neumorphic-inverted-highlight: #c4cac5;
+  --neumorphic-inverted-contrast: #e2e8e3;
+  --glow-color: rgba(90, 169, 196, 0.05);
+  --page-glow-color: rgba(90, 169, 196, 0.14);
+  // Main shapes keep the bright accent; secondary fills go dark so two-tone
+  // icons (e.g. "JS" on its square) keep their contrast
+  --svg-light-fill: #2c4450;
+  --strapi-logo-text: #d3d9d4;
 }

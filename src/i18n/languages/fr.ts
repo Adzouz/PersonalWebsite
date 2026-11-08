@@ -5,12 +5,15 @@ const translations = {
     showcase: 'Vitrine',
     contact: 'Contact',
     menu: 'Menu',
+    darkMode: 'Mode sombre',
   },
   sections: {
     hero: {
-      hi: `Allô, je suis`,
+      hi: `Salut, je suis`,
       wantToKnowMore: 'En savoir plus ?',
-      what: 'Je crée des <span>sites web</span>, <span>apps web</span> et des <span>apps mobile</span>',
+      what: 'Je transforme des <span>idées 💡</span> en <span>réalité 🚀</span>',
+      whatRight:
+        "L'<span>imagination ✨</span> est mon <span>terrain de jeu 🛝</span>",
     },
     trustedClients: {
       title: `Ils m'ont fait confiance`,
@@ -20,23 +23,23 @@ const translations = {
       title: 'Qui suis-je?',
       start: 'Brisons la glace!',
       'questions.0.question': 'Alors, qui es-tu?',
-      'questions.0.answer': `Je suis un développeur front-end originaire de Lille (France). J'ai vécu 7 ans à Montréal (CA), un an à Madrid (SP) et maintenant je suis de nouveau à Lille.<br />J'ai les deux nationalités française et canadienne.`,
+      'questions.0.answer': `Je suis un développeur front-end originaire de Lille 🇫🇷. J'ai vécu 7 ans à Montréal 🇨🇦, un an à Madrid 🇪🇸 et maintenant je suis de nouveau à Lille.<br />J'ai les deux nationalités française et canadienne.`,
       'questions.1.question': 'Quelles langues parles-tu?',
       'questions.1.answer': `Le français est ma langue natale. Je parle couramment anglais et je parle un petit peu l'espagnol.`,
       'questions.2.question': 'Où as-tu étudié?',
-      'questions.2.answer': `SUPINFO University à Lille (FR). C'est une école d'informatique internationale où j'ai obtenu mon Master of Science en IT. J'ai également eu une certification en sécurité des systèmes.
+      'questions.2.answer': `SUPINFO University à Lille 🇫🇷. C'est une école d'informatique internationale où j'ai obtenu mon Master of Science en IT. J'ai également eu une certification en sécurité des systèmes.
       <br />J'ai aussi été professeur là-bas:
       <ul>
         <li>B.Sc.1: SEO, SEA, SEM, SMO</li>
         <li>B.Sc.2: PHP, Symfony, AJAX</li>
       </ul>`,
       'questions.3.question': 'Où travailles-tu actuellement?',
-      'questions.3.answer': `Je travaille à Ubisoft, une compagnie française qui développe des jeux vidéo. Je suis dans l'équipe E-commerce et je travaille essentiellement sur la boutique en ligne et sur le client PC Ubisoft Connect.`,
+      'questions.3.answer': `Je travaille chez Strapi, une compagnie française qui développe un CMS open-source.`,
       'questions.4.question':
-        'Quelles sont les technologies que tu utilises au quotidien dans ton travail?',
-      'questions.4.answer': `Je travaille avec React et Typescript. Maintenant surtout avec des outils et technologies IA (Claude, Cursor, etc.). J'ai aussi de solides connaissances en design avec Sass et quelques connaissances en tests unitaires (avec Jest ou encore Testing Library).`,
+        'Quelles sont les outils que tu utilises dans ton travail?',
+      'questions.4.answer': `Je travaille principalement avec React et Typescript. Mais maintenant avec les outils d'IA, le champ des possibles est vraiment ouvert. J'apporte l'expérience et l'IA apporte les possibilités.`,
       chatbot: {
-        placeholder: 'Posez votre question...',
+        placeholder: 'Posez une question sur moi...',
         fallbackAnswer: `Je n'ai pas bien compris la question ou je n'ai malheureusement pas la réponse. Veuillez reformuler.`,
         ask: 'Demander',
         provideQuestion: 'Vous devez fournir une question.',

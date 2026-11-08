@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 // Components
 import { FranceFlag, SpainFlag, UKFlag } from '../Languages';
+import ThemeToggle from '../ThemeToggle';
 
 // Styles
 import styles from './Navbar.module.scss';
@@ -77,6 +78,7 @@ const Navbar = () => {
           <a href="#contact">{t('navbar.contact')}</a>
         </li>
       </ul>
+      <ThemeToggle />
       <div className={styles.right}>
         <button onClick={() => setShowLanguages(!showLanguages)}>
           {getLangFlag(currentLang)} {currentLang.toUpperCase()}

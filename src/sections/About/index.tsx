@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 // Components
 import AppearOnScroll from '../../components/AppearOnScroll';
-import BackgroundShape from './BackgroundShape';
 import Chatbot from '../../components/Chatbot';
 import Questions from './Questions';
 
@@ -95,7 +94,6 @@ const About = () => {
       <section id="about" className={styles.section}>
         <h2>{t('sections.about.title')}</h2>
         <p>{t('sections.about.start')}</p>
-        <BackgroundShape />
         <ul className={styles.messages}>
           <Questions />
           <Chatbot

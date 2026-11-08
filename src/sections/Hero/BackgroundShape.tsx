@@ -29,13 +29,7 @@ const BackgroundShape = () => (
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          {/* Neumorphic inner shadows, colored from CSS so they follow the theme */}
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -44,34 +38,28 @@ const BackgroundShape = () => (
           />
           <feOffset dx="-5" dy="-5" />
           <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.886275 0 0 0 0 0.909804 0 0 0 0 0.890196 0 0 0 1 0"
+          <feComposite
+            in2="hardAlpha"
+            operator="arithmetic"
+            k2="-1"
+            k3="1"
+            result="lightMask"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_12_28"
-          />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset dx="5" dy="5" />
+          <feFlood className={styles.shapeLightShadow} />
+          <feComposite in2="lightMask" operator="in" />
+          <feBlend mode="normal" in2="SourceGraphic" result="lightShadow" />
+          <feOffset in="hardAlpha" dx="5" dy="5" />
           <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.768627 0 0 0 0 0.792157 0 0 0 0 0.772549 0 0 0 1 0"
+          <feComposite
+            in2="hardAlpha"
+            operator="arithmetic"
+            k2="-1"
+            k3="1"
+            result="darkMask"
           />
-          <feBlend
-            mode="normal"
-            in2="effect1_innerShadow_12_28"
-            result="effect2_innerShadow_12_28"
-          />
+          <feFlood className={styles.shapeDarkShadow} />
+          <feComposite in2="darkMask" operator="in" />
+          <feBlend mode="normal" in2="lightShadow" />
         </filter>
       </defs>
     </svg>

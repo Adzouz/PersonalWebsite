@@ -8,12 +8,14 @@ const translations = {
     showcase: 'Portafolio',
     contact: 'Contacto',
     menu: 'Menú',
+    darkMode: 'Modo oscuro',
   },
   sections: {
     hero: {
       hi: `Hola, soy`,
       wantToKnowMore: '¿Quieres saber más?',
-      what: 'Creo <span>sitios web</span>, <span>apps web</span> y <span>apps móviles</span>',
+      what: 'Transformo <span>ideas 💡</span> en <span>realidad 🚀</span>',
+      whatRight: '<span>Imaginación ✨</span> es mi <span>playground 🛝</span>',
     },
     trustedClients: {
       title: 'Confiaron en mí',
@@ -24,12 +26,12 @@ const translations = {
       start: '¡Empecemos la conversación!',
       'questions.0.question': 'Entonces, ¿quién eres?',
       'questions.0.answer':
-        'Soy un desarrollador front-end francés de Lille (Francia). Viví en Montréal (CA) durante 7 años, un año en Madrid (ES) y ahora estoy de vuelta en Lille.<br />Tengo nacionalidad francesa y canadiense.',
+        'Soy un desarrollador front-end francés de Lille 🇫🇷. Viví en Montréal 🇨🇦 durante 7 años, un año en Madrid 🇪🇸 y ahora estoy de vuelta en Lille.<br />Tengo nacionalidad francesa y canadiense.',
       'questions.1.question': '¿Qué idiomas hablas?',
       'questions.1.answer':
         'El francés es mi lengua materna. Tengo un nivel bastante bueno de inglés y hablo un poquito de español.',
       'questions.2.question': '¿Dónde estudiaste?',
-      'questions.2.answer': `En la Universidad SUPINFO, en Lille (FR), donde me gradué y obtuve un Máster en Ciencias en Informática y tengo una certificación en Seguridad de Sistemas.
+      'questions.2.answer': `En la Universidad SUPINFO, en Lille 🇫🇷, donde me gradué y obtuve un Máster en Ciencias en Informática y tengo una certificación en Seguridad de Sistemas.
         <br />También fui profesor en la misma universidad:
         <ul>
           <li>B.Sc.1: SEO, SEA, SEM, SMO</li>
@@ -41,9 +43,9 @@ const translations = {
       'questions.4.question':
         '¿Qué tecnologias usas en tu trabajo profesional?',
       'questions.4.answer':
-        'Trabajo con React y Typescript. Principalmente trabajando con herramientas y tecnologías de IA ahora (Claude, Cursor, etc.). También tengo sólidos conocimientos de diseño con Sass y algunos conocimientos de pruebas unitarias (con Jest o Testing Library).',
+        'Trabajo con React y Typescript. Pero ahora con las herramientas de IA, el campo es realmente abierto. Yo aporto la experiencia y la IA aporta las posibilidades.',
       chatbot: {
-        placeholder: 'Escribe tu pregunta...',
+        placeholder: 'Escribe una pregunta sobre mí...',
         fallbackAnswer:
           'No he entendido o no puedo responder a la pregunta. Por favor, reformúlala e inténtalo de nuevo.',
         ask: 'Preguntar',

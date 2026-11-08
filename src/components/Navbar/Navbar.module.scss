@@ -24,7 +24,7 @@
   margin: 0;
   margin-bottom: 1rem;
   z-index: 10;
-  transition: .3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 
   @include min('tablet') {
     align-items: center;
@@ -33,13 +33,13 @@
     transform: none;
   }
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    transition: .3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
     opacity: 0;
     visibility: hidden;
     @include glassmorphism;
@@ -93,7 +93,8 @@
       padding: 0;
     }
   }
-  a, button {
+  a,
+  button {
     cursor: pointer;
     text-decoration: none;
     text-transform: uppercase;
@@ -121,7 +122,7 @@
       }
       > li {
         height: 0;
-        transition: .2s all ease-in-out;
+        transition: 0.2s all ease-in-out;
         opacity: 0;
         visibility: hidden;
 
@@ -151,7 +152,7 @@
     > li {
       margin: 0;
       position: relative;
-      transition: .2s all ease-in-out;
+      transition: 0.2s all ease-in-out;
 
       > a {
         display: block;
@@ -179,7 +180,7 @@
     }
   }
   .right {
-    margin-left: auto;
+    margin-left: 0.5rem;
     padding: 0.5rem 0;
 
     @media (hover: hover) {
@@ -189,7 +190,8 @@
             @include buttonDefault;
           }
           ul {
-            &, li {
+            &,
+            li {
               opacity: 1;
               visibility: visible;
             }
@@ -197,7 +199,7 @@
         }
       }
     }
-    button {
+    button  {
       position: relative;
       z-index: 2;
     }
@@ -241,7 +243,8 @@
       visibility: hidden;
 
       &.show {
-        &, li {
+        &,
+        li {
           opacity: 1;
           visibility: visible;
         }

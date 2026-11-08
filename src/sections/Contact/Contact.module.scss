@@ -7,25 +7,6 @@ section.section {
     position: relative;
     z-index: 2;
   }
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 150vw;
-    height: 150vw;
-    border-radius: 75vw;
-    filter: blur(20vw);
-    background-color: var(--third-color);
-    transform: translate(-50%, 90%);
-    opacity: 0.3;
-    z-index: 1;
-
-    @include min('tablet') {
-      filter: blur(150vw);
-      opacity: 0.2;
-    }
-  }
   .list {
     margin: 0;
     padding: 0;

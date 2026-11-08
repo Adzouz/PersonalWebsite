@@ -1,6 +1,7 @@
 // Components
 import About from './sections/About';
 import Contact from './sections/Contact';
+import CursorGlow from './components/CursorGlow';
 import Hero from './sections/Hero';
 import Navbar from './components/Navbar';
 import SEOModule from './components/SEOModule';
@@ -10,6 +11,7 @@ import TrustedClients from './sections/TrustedClients';
 const App = () => (
   <>
     <SEOModule />
+    <CursorGlow />
     <Navbar />
     <Hero />
     <TrustedClients />

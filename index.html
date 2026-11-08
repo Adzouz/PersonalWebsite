@@ -11,6 +11,21 @@
       gtag('config', 'G-DYWL9W2Y86');
     </script>
     <meta charset="UTF-8" />
+    <script>
+      // Apply the theme before first paint to avoid a light flash
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem('theme');
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="icon" href="/images/favicon-light.ico" media="(prefers-color-scheme: light)">
     <link rel="icon" href="/images/favicon-dark.ico" media="(prefers-color-scheme: dark)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

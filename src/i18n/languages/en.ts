@@ -8,12 +8,14 @@ const translations = {
     showcase: 'Showcase',
     contact: 'Contact',
     menu: 'Menu',
+    darkMode: 'Dark mode',
   },
   sections: {
     hero: {
       hi: `Hi, I'm`,
       wantToKnowMore: 'Want to know more?',
-      what: 'I create <span>websites</span>, <span>web apps</span> and <span>mobile apps</span>',
+      what: 'I turn <span>ideas 💡</span> into <span>reality 🚀</span>',
+      whatRight: '<span>Imagination ✨</span> is my <span>playground 🛝</span>',
     },
     trustedClients: {
       title: 'They trusted me',
@@ -23,11 +25,11 @@ const translations = {
       title: 'Get to know me',
       start: `Let's start the conversation!`,
       'questions.0.question': 'So, who are you?',
-      'questions.0.answer': `I'm a french fullstack developer from Lille (France). I spent 7 years in Montreal (CA), almost a year in Madrid (SP) and now I'm back in Lille again.<br />I have both French and Canadian citizenships.`,
+      'questions.0.answer': `I'm a french fullstack developer from Lille 🇫🇷. I spent 7 years in Montreal 🇨🇦, almost a year in Madrid 🇪🇸 and now I'm back in Lille again.<br />I have both French and Canadian citizenships.`,
       'questions.1.question': 'Which languages do you speak?',
       'questions.1.answer': `French is my native language. I have a pretty good level in English and I speak a bit of Spanish.`,
       'questions.2.question': 'Where did you study?',
-      'questions.2.answer': `SUPINFO University, in Lille (FR) where I graduated and got a Master of Science in IT and I have a certification in Systems Security.
+      'questions.2.answer': `SUPINFO University, in Lille 🇫🇷 where I graduated and got a Master of Science in IT and I have a certification in Systems Security.
       <br />I was also a teacher in the same university:
       <ul>
         <li>B.Sc.1: SEO, SEA, SEM, SMO</li>
@@ -36,9 +38,9 @@ const translations = {
       'questions.3.question': 'Where are you currently working?',
       'questions.3.answer': `I'm working at Strapi, a French company that develops an open-source headless CMS.`,
       'questions.4.question': 'Which tech do you use in your work?',
-      'questions.4.answer': `I work with React, React Native and Typescript. Mainly with AI tools and technologies now (Claude, Cursor, etc.). I also have a solid knowledge in design with Sass and a bit in unit testing (with Jest and Testing Library).`,
+      'questions.4.answer': `I work with React, React Native and Typescript. But now with AI tools, the field is really open. I bring the experience and AI brings the possibilities.`,
       chatbot: {
-        placeholder: 'Type your question...',
+        placeholder: 'Type a question about me...',
         fallbackAnswer: `I didn't get or I can't answer the question. Please rephrase and ask again.`,
         ask: 'Ask',
         provideQuestion: 'You have to provide a question.',

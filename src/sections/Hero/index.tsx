@@ -1,5 +1,6 @@
 // Libraries
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 // Components
 import AppearOnScroll from '../../components/AppearOnScroll';
@@ -24,6 +25,10 @@ const Hero = () => {
             <p
               className={styles.subtitle}
               dangerouslySetInnerHTML={{ __html: t('sections.hero.what') }}
+            />
+            <p
+              className={clsx(styles.subtitle, styles.right)}
+              dangerouslySetInnerHTML={{ __html: t('sections.hero.whatRight') }}
             />
           </div>
         </TiltElement>

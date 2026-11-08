@@ -14,53 +14,6 @@ section.section {
       font-size: 2rem;
     }
   }
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 75vw;
-    height: 20vh;
-    border-radius: 75vw;
-    filter: blur(30vw);
-    background-color: var(--third-color);
-    transform: translate(-50%, -50%);
-    opacity: 0.3;
-    z-index: 1;
-
-    @include min('tablet') {
-      opacity: 0.4;
-    }
-  }
-  .shapeContainer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    opacity: 0.8;
-    z-index: 1;
-
-    @include min('tablet') {
-      opacity: 1;
-    }
-    svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 200%;
-      transform: translate(-50%, -50%) rotate(60deg);
-
-      @include min('tablet') {
-        width: 120%;
-        transform: translate(-50%, -50%);
-      }
-      .shape {
-        fill: var(--background-color);
-      }
-    }
-  }
   .messages {
     margin: 0 auto;
     padding: 0 1rem;
@@ -175,8 +128,8 @@ section.section {
                 transparent 0
               )
               0 / min(100%, (50 - var(--p)) * 100%),
-            linear-gradient(var(--v), transparent 50%, var(--fourth-color) 0) 0 /
-              min(100%, (var(--p) - 50) * 100%),
+            linear-gradient(var(--v), transparent 50%, var(--fourth-color) 0)
+              0 / min(100%, (var(--p) - 50) * 100%),
             linear-gradient(
               to right,
               var(--background-color) 50%,
