@@ -77,5 +77,4 @@ The language is picked from the URL path (`/en`, `/fr`, `/es`) and falls back to
 
 ## Deployment
 
-- **Vercel**: `vercel.json` sets up SPA rewrites to `index.html` and cache headers.
-- **CircleCI**: `.circleci/config.yml` builds on every push and copies `dist/` to the EC2 server on `main`.
+The site is hosted on Vercel. `vercel.json` sets up SPA rewrites to `index.html` and cache headers.
