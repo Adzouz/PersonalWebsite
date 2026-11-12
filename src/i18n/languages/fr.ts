@@ -1,6 +1,6 @@
 const translations = {
   metas: {
-    description: `Je suis Adrien Lepoutre, développeur front-end. Je crée des sites web, des applications web et des applications mobiles modernes.`,
+    description: `Je suis Adrien Lepoutre, développeur fullstack. Je crée des sites web, des applications web et des applications mobiles modernes.`,
   },
   navbar: {
     clients: 'Clients',
@@ -26,7 +26,7 @@ const translations = {
       title: 'Qui suis-je?',
       start: 'Brisons la glace!',
       'questions.0.question': 'Alors, qui es-tu?',
-      'questions.0.answer': `Je suis un développeur front-end originaire de Lille 🇫🇷. J'ai vécu 7 ans à Montréal 🇨🇦, un an à Madrid 🇪🇸 et maintenant je suis de nouveau à Lille.<br />J'ai les deux nationalités française et canadienne.`,
+      'questions.0.answer': `Je suis un développeur fullstack originaire de Lille 🇫🇷. J'ai vécu 7 ans à Montréal 🇨🇦, un an à Madrid 🇪🇸 et maintenant je suis de nouveau à Lille.<br />J'ai les deux nationalités française et canadienne.`,
       'questions.1.question': 'Quelles langues parles-tu?',
       'questions.1.answer': `Le français est ma langue natale. Je parle couramment anglais et je parle un petit peu l'espagnol.`,
       'questions.2.question': 'Où as-tu étudié?',

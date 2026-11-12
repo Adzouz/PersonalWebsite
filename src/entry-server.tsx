@@ -5,20 +5,26 @@
 // Libraries
 import { StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
-import i18n, { availableLanguages, defaultLanguage } from './i18n';
+import i18n, {
+  availableLanguages,
+  defaultLanguage,
+  languagePath,
+} from './i18n';
 
 // Components
 import App from './App';
 
 export { availableLanguages, defaultLanguage };
 
-const SITE_URL = import.meta.env.REACT_APP_SITE_URL.replace(/\/$/, '');
+// Fallback keeps the build working where the env var is not set (CI)
+const SITE_URL = (
+  import.meta.env.REACT_APP_SITE_URL || 'https://thewebsdoor.com'
+).replace(/\/$/, '');
+const TITLE = `The Web's Door - Adrien Lepoutre`;
 const KEYWORDS =
   'frontend,developer,react,website,web,app,mobile,apps,site,sites,front-end,front,programmer';
 
-// The default language lives at the root URL, the others under /<lang>
-const pageUrl = (lang: string) =>
-  lang === defaultLanguage ? `${SITE_URL}/` : `${SITE_URL}/${lang}`;
+const pageUrl = (lang: string) => `${SITE_URL}${languagePath(lang)}`;
 
 const escapeAttribute = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -38,7 +44,7 @@ const structuredData = (lang: string, url: string, description: string) => ({
       '@type': 'ProfilePage',
       '@id': `${url}#profilepage`,
       url,
-      name: `The Web's Door - Adrien Lepoutre`,
+      name: TITLE,
       description,
       inLanguage: lang,
       isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -51,7 +57,7 @@ const structuredData = (lang: string, url: string, description: string) => ({
       url: `${SITE_URL}/`,
       image: `${SITE_URL}/images/me.webp`,
       description,
-      jobTitle: 'Front-end developer',
+      jobTitle: 'Fullstack developer',
       worksFor: {
         '@type': 'Organization',
         name: 'Strapi',
@@ -73,6 +79,7 @@ const structuredData = (lang: string, url: string, description: string) => ({
       ],
       knowsLanguage: ['fr', 'en', 'es'],
       knowsAbout: [
+        'Fullstack development',
         'Front-end development',
         'Web development',
         'Mobile app development',
@@ -99,6 +106,8 @@ const renderHead = (lang: string) => {
   ).replace(/</g, '\\u003c');
 
   return [
+    `<title>${TITLE}</title>`,
+    `<meta property="og:title" content="${escapeAttribute(TITLE)}" />`,
     `<meta name="description" content="${description}" />`,
     `<meta name="keywords" content="${KEYWORDS}" />`,
     `<meta property="og:description" content="${description}" />`,

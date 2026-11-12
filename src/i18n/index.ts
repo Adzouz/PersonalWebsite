@@ -8,6 +8,10 @@ import fr from './languages/fr';
 export const availableLanguages = ['en', 'es', 'fr'];
 export const defaultLanguage = availableLanguages[0];
 
+// The default language lives at the root URL, the others under /<lang>
+export const languagePath = (lang: string) =>
+  lang === defaultLanguage ? '/' : `/${lang}`;
+
 const initTranslations = () => {
   // `location` is missing when the page is prerendered at build time
   const pathParts =
