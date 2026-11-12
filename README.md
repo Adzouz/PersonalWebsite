@@ -10,7 +10,6 @@ A single-page site built with React, TypeScript and Vite, showing a hero section
 - [Vite 8](https://vite.dev) (Rolldown-based) with `@vitejs/plugin-react`
 - [Sass](https://sass-lang.com) CSS Modules
 - [i18next](https://www.i18next.com) / `react-i18next` for translations
-- [react-helmet-async](https://github.com/staylor/react-helmet-async) for SEO meta tags
 - ESLint 10 (flat config), Prettier, Husky, lint-staged and commitlint
 
 ## Requirements

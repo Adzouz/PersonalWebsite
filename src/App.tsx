@@ -4,13 +4,11 @@ import Contact from './sections/Contact';
 import CursorGlow from './components/CursorGlow';
 import Hero from './sections/Hero';
 import Navbar from './components/Navbar';
-import SEOModule from './components/SEOModule';
 import Showcase from './sections/Showcase';
 import TrustedClients from './sections/TrustedClients';
 
 const App = () => (
   <>
-    <SEOModule />
     <CursorGlow />
     <Navbar />
     <Hero />

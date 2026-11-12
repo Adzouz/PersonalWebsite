@@ -1,0 +1,52 @@
+# Adrien Lepoutre - The Web's Door
+
+> Adrien Lepoutre is a French and Canadian fullstack developer based in Lille, France. He builds modern websites, web apps and mobile apps, mainly with React, React Native and TypeScript, and currently works at Strapi, the company behind the open-source headless CMS.
+
+This file summarizes thewebsdoor.com, Adrien's portfolio, for language models and AI agents. The site is a single page available in English (/), French (/fr) and Spanish (/es).
+
+## Profile
+
+- Location: Lille, France. He lived 7 years in Montreal, Canada, and almost a year in Madrid, Spain.
+- Citizenship: French and Canadian.
+- Languages: French (native), English (good level), Spanish (basic).
+- Education: Master of Science in IT from SUPINFO University in Lille, plus a certification in Systems Security.
+- Teaching: former teacher at SUPINFO (B.Sc.1: SEO, SEA, SEM, SMO. B.Sc.2: PHP, Symfony, AJAX).
+- Current job: developer at Strapi (https://strapi.io).
+- Main stack: React, React Native, TypeScript. He also uses AI tools in his daily work.
+
+## Clients
+
+Adeo, Bota Bota, Decathlon, Desjardins, Devimco, Fashion Cube, Fonds FTQ, Hobbynote, M6, Publicis Groupe, Resisto, TheBookEdition, Ubisoft and VIA Rail, among others.
+
+## Professional projects
+
+- [Store.Ubisoft.com](https://store.ubisoft.com) (2019): website. React, TypeScript, Turborepo, Sass, Vite, Salesforce Commerce Cloud.
+- [Resisto.ca](https://resisto.ca) (2019): website. Drupal, PHP, JavaScript, jQuery, Sass.
+- [ViaRail.ca](https://viarail.ca) (2018): website. Drupal, PHP, JavaScript, jQuery, Sass.
+- [BotaBota.ca](https://botabota.ca) (2018): website. WordPress, PHP, JavaScript, jQuery, Sass.
+- [Volckaert-peinture.fr](https://volckaert-peinture.fr) (2017): website. WordPress, PHP, JavaScript, jQuery, Sass.
+- [TheBookEdition.com](https://thebookedition.com) (2015): website. PrestaShop, PHP, JavaScript, jQuery, Sass.
+- [Superlav.com](https://superlav.com) (2015): website. WordPress, PHP, JavaScript, jQuery, Sass.
+- Fonds FTQ - L'Écoportrait (2018, offline): web app. Vue.js, JavaScript, Sass, Pug.
+- Older offline projects (2011-2016): Inesis.fr, BulleBleue.fr, iBrode.com, INEAT-Conseil.fr, DanoneEtVous.com, Levi's store finder, Pacesium.com, Jinnove.com and Jinnove business meetings, Radins.com.
+
+## Personal projects
+
+- [One More Show](https://onemoreshow.app) (2026): mobile app. Expo, React, TypeScript, Strapi.
+- [Parallels](https://parallels.thewebsdoor.com/) (2026): mobile and desktop app. React, Capacitor, Electron, TypeScript.
+- [AidenClarkMusic.com](https://aidenclarkmusic.com) (2022): website. React, TypeScript, Sass.
+- [Pokedex GO](https://pokedex.thewebsdoor.com/) (2021): web app. React, TypeScript, styled-components.
+- [Streetex](https://streetex.thewebsdoor.com/) (2019): web app. Strapi, Node.js, React, JavaScript, Sass.
+- [Kikadica](https://kikadica.thewebsdoor.com/) (2016): website. Node.js, JavaScript, Sass.
+- Older offline projects (2014-2016): Jahneration.fr and its shop, Drop² and BoatTrip (Swift iOS apps), Pilulier.co, La Soundbox des Tutos (Objective-C iOS app).
+
+## Links
+
+- [Portfolio (English)](https://thewebsdoor.com/)
+- [Portfolio (French)](https://thewebsdoor.com/fr)
+- [Portfolio (Spanish)](https://thewebsdoor.com/es)
+- [Resume (English, PDF)](https://medias.thewebsdoor.com/resume-public-en.pdf)
+- [Resume (French, PDF)](https://medias.thewebsdoor.com/resume-public-fr.pdf)
+- [Resume (Spanish, PDF)](https://medias.thewebsdoor.com/resume-public-es.pdf)
+- [LinkedIn](https://www.linkedin.com/in/adrienlepoutre)
+- [GitHub](https://github.com/Adzouz)

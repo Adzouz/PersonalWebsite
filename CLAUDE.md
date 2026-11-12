@@ -5,7 +5,7 @@ Personal portfolio SPA (thewebsdoor.com). React 19 + TypeScript 6 + Vite 8 + Sas
 ## Commands
 
 - `npm run dev`: dev server
-- `npm run build`: `tsc -b && vite build`. Run it to verify changes.
+- `npm run build`: type-check, client build, SSR build of `src/entry-server.tsx`, then `scripts/prerender.js` writes static HTML for each language (`dist/index.html` for en, `dist/{en,fr,es}/index.html`). Run it to verify changes.
 - `npm run lint`: ESLint flat config (`eslint.config.js`)
 - `npm run format`: Prettier. Many existing files are not formatted yet, so only format the files you touch.
 
@@ -26,6 +26,13 @@ Node 24 is required and pinned via Volta.
 
 - Translations are TS objects in `src/i18n/languages/{en,fr,es}.ts`. Keep all three in sync when you add keys.
 - The language comes from the URL path segment and defaults to `en`.
+
+## SEO / GEO
+
+- Crawlers and AI agents often don't run JS, so the build prerenders the page. `<head>` tags (description, canonical, hreflang, JSON-LD `Person`) are built in `src/entry-server.tsx`, not in components. There is no Helmet.
+- `main.tsx` uses `createRoot` (not `hydrateRoot`), so the client replaces the prerendered markup. Render-time code must not touch `window`/`document`/`location` without a `typeof` guard, or the prerender step fails.
+- English lives at `/`, so its canonical is `/`. `/en` serves the same page.
+- `public/llms.txt` is a hand-written summary for LLMs. Update it when projects, clients, or the bio change. Keep `public/sitemap.xml` in sync with the languages.
 
 ## Env vars
 

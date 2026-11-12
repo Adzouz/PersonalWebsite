@@ -1,4 +1,6 @@
+# Search engines and AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended...) are all welcome. A summary for LLMs is at /llms.txt.
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://thewebsdoor.com/sitemap.xml
