@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { availableLanguages, languagePath } from '../../i18n';
 
 // Components
 import { FranceFlag, SpainFlag, UKFlag } from '../Languages';
@@ -28,9 +29,6 @@ const Navbar = () => {
   const [showLanguages, setShowLanguages] = useState(false);
 
   const currentLang = i18n.language;
-  const availableLanguages = Array.isArray(i18n.options.supportedLngs)
-    ? i18n.options.supportedLngs?.filter((lang) => lang !== 'cimode')
-    : [];
   const otherLanguages = availableLanguages.filter(
     (lang) => lang !== currentLang
   );
@@ -88,7 +86,7 @@ const Navbar = () => {
         >
           {otherLanguages.map((lang) => (
             <li key={`flag_${lang}`}>
-              <a href={`/${lang}`}>
+              <a href={languagePath(lang)}>
                 {getLangFlag(lang)} {lang.toUpperCase()}
               </a>
             </li>

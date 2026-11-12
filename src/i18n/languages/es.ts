@@ -1,6 +1,6 @@
 const translations = {
   metas: {
-    description: `I'm Adrien Lepoutre, front-end developer. I create modern websites, web apps and mobile apps.`,
+    description: `Soy Adrien Lepoutre, desarrollador fullstack. Creo sitios web, aplicaciones web y aplicaciones móviles modernas.`,
   },
   navbar: {
     clients: 'Clientes',
@@ -26,7 +26,7 @@ const translations = {
       start: '¡Empecemos la conversación!',
       'questions.0.question': 'Entonces, ¿quién eres?',
       'questions.0.answer':
-        'Soy un desarrollador front-end francés de Lille 🇫🇷. Viví en Montréal 🇨🇦 durante 7 años, un año en Madrid 🇪🇸 y ahora estoy de vuelta en Lille.<br />Tengo nacionalidad francesa y canadiense.',
+        'Soy un desarrollador fullstack francés de Lille 🇫🇷. Viví en Montréal 🇨🇦 durante 7 años, un año en Madrid 🇪🇸 y ahora estoy de vuelta en Lille.<br />Tengo nacionalidad francesa y canadiense.',
       'questions.1.question': '¿Qué idiomas hablas?',
       'questions.1.answer':
         'El francés es mi lengua materna. Tengo un nivel bastante bueno de inglés y hablo un poquito de español.',

@@ -25,9 +25,13 @@ const MoonIcon = () => (
 
 const ThemeToggle = () => {
   const { t } = useTranslation();
-  // index.html sets data-theme before React mounts
+  // index.html sets data-theme before React mounts. `document` is missing
+  // when the page is prerendered at build time.
   const [theme, setTheme] = useState<Theme>(() =>
-    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+    typeof document !== 'undefined' &&
+    document.documentElement.dataset.theme === 'dark'
+      ? 'dark'
+      : 'light'
   );
 
   const toggleTheme = () => {

@@ -1,6 +1,6 @@
 const translations = {
   metas: {
-    description: `I'm Adrien Lepoutre, front-end developer. I create modern websites, web apps and mobile apps.`,
+    description: `I'm Adrien Lepoutre, fullstack developer. I create modern websites, web apps and mobile apps.`,
   },
   navbar: {
     clients: 'Clients',

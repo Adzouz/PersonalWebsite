@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
   <url>
     <loc>https://thewebsdoor.com/</loc>
-    <lastmod>2024-12-16</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://thewebsdoor.com/en</loc>
-    <lastmod>2024-12-16</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thewebsdoor.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thewebsdoor.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://thewebsdoor.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thewebsdoor.com/" />
   </url>
   <url>
     <loc>https://thewebsdoor.com/fr</loc>
-    <lastmod>2024-12-16</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thewebsdoor.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thewebsdoor.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://thewebsdoor.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thewebsdoor.com/" />
+  </url>
+  <url>
+    <loc>https://thewebsdoor.com/es</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thewebsdoor.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thewebsdoor.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://thewebsdoor.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thewebsdoor.com/" />
   </url>
 </urlset>
