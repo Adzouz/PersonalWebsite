@@ -37,6 +37,8 @@ $secondary-font: 'Sequel 100 Wide 95';
   --neumorphic-inverted-contrast: #232d34;
   --glow-color: rgba(18, 78, 102, 0.04);
   --page-glow-color: rgba(18, 78, 102, 0.2);
+  // The 404 page pairs this color with --page-glow-color (see _base.scss)
+  --not-found-glow-color: rgba(112, 72, 168, 0.15);
   // Two-tone SVG icons and logos (src/components/Svg.module.scss)
   --svg-dark-fill: var(--third-color);
   --svg-light-fill: var(--fourth-color);
@@ -99,6 +101,7 @@ $secondary-font: 'Sequel 100 Wide 95';
   --neumorphic-inverted-contrast: #e2e8e3;
   --glow-color: rgba(90, 169, 196, 0.05);
   --page-glow-color: rgba(90, 169, 196, 0.14);
+  --not-found-glow-color: rgba(150, 110, 220, 0.16);
   // Main shapes keep the bright accent; secondary fills go dark so two-tone
   // icons (e.g. "JS" on its square) keep their contrast
   --svg-light-fill: #2c4450;

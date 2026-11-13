@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
+    "dev:api": "set -a && . ./.env.local && set +a && vercel dev",
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -13,6 +14,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@upstash/redis": "^1.41.0",
     "clsx": "^2.1.1",
     "i18next": "^26.5.3",
     "react": "^19.3.1",

@@ -1,0 +1,117 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+// The chat bubbles and the subtitle come from the About section styles
+section.section {
+  min-height: 100dvh;
+  // The page starts under the fixed navbar
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+
+  @include min('desktop') {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
+  .title,
+  > p {
+    animation: appear 0.4s ease-out both;
+  }
+  > p {
+    margin: 0.5rem 0 2rem;
+    padding: 0 1rem;
+    animation-delay: 0.1s;
+
+    @include min('tablet') {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+.title {
+  margin: 0;
+  font-family: var(--secondary-font);
+  font-size: clamp(5rem, 25vw, 12rem);
+  font-weight: normal;
+  line-height: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(
+    20deg,
+    var(--text-color),
+    var(--third-color)
+  );
+}
+
+// Each message comes in like a new chat message, the first ones one by one
+.messages > li {
+  animation: appear 0.3s ease-out both;
+  // Room for the fixed navbar when a message is scrolled into view
+  scroll-margin: 5rem 0 1.5rem;
+
+  &:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.55s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.8s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  section.section .title,
+  section.section > p,
+  .messages > li {
+    animation: none;
+  }
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  @include min('tablet') {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  a,
+  button {
+    @include button;
+
+    & {
+      display: inline-flex;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem;
+      line-height: 1.25;
+      text-decoration: none;
+    }
+    @media (hover: hover) {
+      &:hover {
+        @include buttonHover;
+      }
+    }
+    &:focus-visible {
+      @include buttonFocus;
+    }
+    &[aria-pressed='true'] {
+      @include buttonHover;
+
+      & {
+        color: var(--third-color);
+      }
+    }
+  }
+}
+
+.game {
+  width: 100%;
+}

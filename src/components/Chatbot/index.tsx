@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
+import { loadRecaptcha } from '../../utils/recaptcha';
 
 // Components
 import { ClearIcon } from '../Icons';
@@ -10,44 +11,91 @@ import { ClearIcon } from '../Icons';
 import aboutStyles from '../../sections/About/About.module.scss';
 import styles from './Chatbot.module.scss';
 
-interface ChatbotQuestionProps {
-  answer: string;
-  error: string | null;
-  handleAsk: () => void;
-  isLoading: boolean;
-  question: string;
-  resetAll: () => void;
-  setQuestion: (question: string) => void;
-}
-
-const ChatbotQuestion = ({
-  answer,
-  error,
-  handleAsk,
-  isLoading,
-  question,
-  resetAll,
-  setQuestion,
-}: ChatbotQuestionProps) => {
-  const { t } = useTranslation();
+// The question field and the bot's answer, as chat bubbles. It renders <li>
+// elements, so it must sit in a list styled with the About `messages` class.
+const Chatbot = () => {
+  const { t, i18n } = useTranslation();
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [questionFocused, setQuestionFocused] = useState(false);
 
   const recaptchaSiteKey = import.meta.env
     .REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY as string;
 
-  const loadRecaptchaScript = () => {
-    const scriptUrl = 'https://www.google.com/recaptcha/api.js';
-    if (!document.querySelector(`script[src^="${scriptUrl}"]`)) {
-      const script = document.createElement('script');
-      script.src = `${scriptUrl}?render=${recaptchaSiteKey}`;
-      script.defer = true;
-      document.body.appendChild(script);
-    }
-  };
+  const lang = i18n.language;
 
   const handleFocus = () => {
-    loadRecaptchaScript();
+    // Failures show when the question is sent: grecaptcha is missing then
+    loadRecaptcha().catch(() => {});
     setQuestionFocused(true);
+  };
+
+  const formatLinks = (text: string) => {
+    const urlRegex = /([hH]ttps?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function (url) {
+      return '<a href="' + url + '" target="_blank">' + url + '</a>';
+    });
+  };
+
+  const resetAll = () => {
+    setQuestion('');
+    setAnswer('');
+    setIsLoading(false);
+    setError(null);
+  };
+
+  const handleAsk = async () => {
+    if (!question) {
+      setError(t('sections.about.chatbot.provideQuestion'));
+      return;
+    }
+    if (window.grecaptcha) {
+      setError(null);
+      setIsLoading(true);
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(recaptchaSiteKey, {
+            action: 'homepage',
+          })
+          .then((token) => {
+            if (token) {
+              fetch(`${import.meta.env.REACT_APP_CHATBOT_URL}/ask`, {
+                method: 'POST',
+                body: JSON.stringify({ question, lang, token }),
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              })
+                .then((response) => response.json())
+                .then((data: { answer?: string; error?: string }) => {
+                  setIsLoading(false);
+                  if (data.error) {
+                    setAnswer('');
+                    setError(t(`sections.about.chatbot.errors.${data.error}`));
+                    return;
+                  }
+                  if (data.answer) {
+                    setAnswer(formatLinks(data.answer));
+                  } else {
+                    setAnswer(t('sections.about.chatbot.fallbackAnswer'));
+                  }
+                })
+                .catch((error) => {
+                  setAnswer('');
+                  setError(t('sections.about.chatbot.errorOccurred'));
+                  console.error('Error with chatbot:', error);
+                  setIsLoading(false);
+                });
+            } else {
+              setError(t('sections.about.chatbot.errorRecaptcha'));
+            }
+          });
+      });
+    } else {
+      setError(t('sections.about.chatbot.errorRecaptcha'));
+    }
   };
 
   return (
@@ -109,4 +157,4 @@ const ChatbotQuestion = ({
   );
 };
 
-export default ChatbotQuestion;
+export default Chatbot;

@@ -75,6 +75,46 @@ const translations = {
     map: {
       city: 'Lille, FR',
     },
+    notFound: {
+      subtitle: 'On dirait que vous avez pris la mauvaise porte.',
+      question: 'Hé, où est {{path}}?',
+      answer: `Nulle part, désolé 🚪 Cette page n'existe pas: elle a été déplacée, ou elle n'a jamais existé. Mais puisque vous êtes là, que voulez-vous faire?`,
+      options: {
+        home: '🏠 Retour au site',
+        ask: '💬 Poser une question',
+        play: '🕹️ Jouer à un jeu',
+      },
+      ask: 'Bien sûr, allez-y! Posez-moi une question sur mon travail.',
+      game: {
+        rules: `Jouons à Bug Squash! Écrasez les bugs 🐛 avant qu'ils ne partent en production, et ne touchez pas aux fonctionnalités ✨. Vous avez {{lives}} vies.`,
+        score: 'Score',
+        combo: 'Combo',
+        lives: 'Vies',
+        start: 'Démarrer',
+        again: 'Rejouer',
+        over: 'Partie terminée!',
+        legend: {
+          bug: 'À écraser',
+          feature: 'Pas touche',
+        },
+        scores: {
+          title: 'Meilleurs scores',
+          loading: 'Chargement des scores…',
+          failed: 'Impossible de charger les scores pour le moment.',
+          empty: 'Aucun score pour l’instant. Soyez le premier!',
+          newHigh: 'Nouveau record: {{score}} points! Entrez vos initiales:',
+          save: 'Enregistrer',
+          saving: 'Enregistrement…',
+          errors: {
+            format: '3 lettres, de A à Z.',
+            blocked: 'Choisissez d’autres initiales.',
+            rate: 'Trop d’essais. Attendez une minute, puis réessayez.',
+            expired: 'Cette partie ne peut plus être enregistrée.',
+            failed: 'Votre score n’a pas pu être enregistré. Réessayez.',
+          },
+        },
+      },
+    },
   },
 };
 

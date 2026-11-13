@@ -1,0 +1,222 @@
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+}
+
+@keyframes squash {
+  to {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-12%);
+  }
+  75% {
+    transform: translateX(12%);
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+}
+
+.game {
+  width: 100%;
+  // Narrower on short screens, so the whole game fits below the navbar. The
+  // board is square: its width sets the height of the game.
+  max-width: clamp(15rem, 100dvh - 20.5rem, 22rem);
+  margin: 0 auto;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.hud {
+  @include neumorphismReverse;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  min-width: 4rem;
+  font-family: var(--secondary-font);
+  font-size: 0.625rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--second-color);
+
+  output,
+  strong {
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-variant-numeric: tabular-nums;
+    color: var(--third-color);
+  }
+}
+
+.lives {
+  display: flex;
+  gap: 0.125rem;
+  font-size: 1rem;
+  // Same height as the score, so the three labels stay aligned
+  line-height: 1.25rem;
+
+  .lost {
+    filter: grayscale(1);
+    opacity: 0.3;
+  }
+}
+
+.board {
+  @include neumorphism;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 2rem;
+  // No double-tap zoom, so fast taps all count
+  touch-action: manipulation;
+}
+
+.hole {
+  @include neumorphismReverse;
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--background-color);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:disabled {
+    cursor: default;
+  }
+  // Sits in the corner the round hole leaves free. It is hidden with opacity
+  // on touch screens so it still gives the button its accessible name.
+  kbd {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-family: var(--secondary-font);
+    font-size: 0.625rem;
+    line-height: 1;
+    color: var(--fourth-color);
+    opacity: 0;
+
+    @media (hover: hover) and (pointer: fine) {
+      opacity: 1;
+    }
+  }
+}
+
+.content {
+  @include neumorphism;
+  position: absolute;
+  inset: 12%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: clamp(1.5rem, 9vw, 2.5rem);
+  line-height: 1;
+  pointer-events: none;
+  animation: pop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &.squashed,
+  &.shipped,
+  &.broken {
+    background: none;
+    box-shadow: none;
+  }
+  &.squashed {
+    animation: squash 0.4s ease-in forwards;
+  }
+  &.shipped,
+  &.broken {
+    animation: shake 0.2s ease-in-out 2;
+  }
+  small {
+    position: absolute;
+    top: 0;
+    font-family: var(--secondary-font);
+    font-size: 0.875rem;
+    color: var(--third-color);
+    animation: rise 0.4s ease-out forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    small {
+      animation: none !important;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  button {
+    @include button;
+
+    @media (hover: hover) {
+      &:hover {
+        @include buttonHover;
+      }
+    }
+    &:focus-visible {
+      @include buttonFocus;
+    }
+    // Kept in the layout during a game, so the board does not move. Opacity,
+    // not visibility: the button's transition would keep it hidden, and so
+    // impossible to focus, at the moment the game ends.
+    &:disabled {
+      opacity: 0;
+      cursor: default;
+    }
+  }
+}
+
+.status {
+  min-height: 1.25rem;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  color: var(--third-color);
+}
+
+// The rules at a glance: the chat message that explains them may be out of view
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    @include neumorphism;
+    padding: 0.375rem 0.875rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-style: italic;
+    font-weight: bold;
+  }
+}

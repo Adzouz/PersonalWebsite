@@ -4,6 +4,8 @@ Personal portfolio website of Adrien Lepoutre: [thewebsdoor.com](https://thewebs
 
 A single-page site built with React, TypeScript and Vite, showing a hero section, trusted clients, an "About" Q&A with an AI chatbot, a project showcase and contact links. Available in English, French and Spanish.
 
+Unknown URLs get a chat-style 404 page that offers to go back to the site, ask the chatbot a question or play Bug Squash, a small game.
+
 ## Tech stack
 
 - [React 19](https://react.dev) + [TypeScript 6](https://www.typescriptlang.org)
@@ -42,18 +44,28 @@ REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY=your-recaptcha-key
 | `REACT_APP_CHATBOT_URL`               | Chatbot backend. The site sends `POST {url}/ask` requests to it |
 | `REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 site key protecting the chatbot                    |
 
+The Bug Squash high-score API (`api/`, Vercel Functions) also needs, on Vercel:
+
+| Variable                               | Purpose                                                          |
+| -------------------------------------- | ---------------------------------------------------------------- |
+| `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Upstash Redis store, set by the Upstash integration              |
+| `GOOGLE_RECAPTCHA_SECRET_KEY`          | Server-side reCAPTCHA check of score submissions (never exposed) |
+
+To run the site with the API locally: `vercel env pull`, then `npm run dev:api` (needs the Vercel CLI). Scores saved locally go to the same store as production.
+
 Only variables prefixed with `VITE_` or `REACT_APP_` are exposed to the client, through `import.meta.env`. Never put secrets in them.
 
 ## Scripts
 
-| Command             | Description                                 |
-| ------------------- | ------------------------------------------- |
-| `npm run dev`       | Start the Vite dev server                   |
-| `npm run build`     | Type-check and build to `dist/`             |
-| `npm run preview`   | Serve the production build locally          |
-| `npm run typecheck` | Run the TypeScript project build (`tsc -b`) |
-| `npm run lint`      | Lint with ESLint                            |
-| `npm run format`    | Format everything with Prettier             |
+| Command             | Description                                  |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Start the Vite dev server                    |
+| `npm run dev:api`   | Start the site and the API with `vercel dev` |
+| `npm run build`     | Type-check and build to `dist/`              |
+| `npm run preview`   | Serve the production build locally           |
+| `npm run typecheck` | Run the TypeScript project build (`tsc -b`)  |
+| `npm run lint`      | Lint with ESLint                             |
+| `npm run format`    | Format everything with Prettier              |
 
 ## Project structure
 
@@ -76,4 +88,4 @@ The language is picked from the URL path (`/en`, `/fr`, `/es`) and falls back to
 
 ## Deployment
 
-The site is hosted on Vercel. `vercel.json` sets up SPA rewrites to `index.html` and cache headers.
+The site is hosted on Vercel. `vercel.json` sets the cache headers and maps `/en`, `/fr` and `/es` to their prerendered pages. Any other URL gets `dist/404.html`, which the build writes, with a 404 status.

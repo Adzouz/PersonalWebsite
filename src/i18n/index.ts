@@ -12,12 +12,33 @@ export const defaultLanguage = availableLanguages[0];
 export const languagePath = (lang: string) =>
   lang === defaultLanguage ? '/' : `/${lang}`;
 
+// The language is the first segment of the path, if it is one
+const pathLanguage = (pathname: string) => {
+  const segment = pathname.split('/')[1];
+  return availableLanguages.includes(segment) ? segment : undefined;
+};
+
+// The same path in another language: `/fr/nope` becomes `/es/nope`, or
+// `/nope` for the default language
+export const pathInLanguage = (pathname: string, lang: string) => {
+  const rest = pathLanguage(pathname)
+    ? pathname.replace(/^\/[^/]+/, '')
+    : pathname;
+  const prefix = lang === defaultLanguage ? '' : `/${lang}`;
+  return `${prefix}${rest}` || '/';
+};
+
+// The site has no router. Its only pages are the language roots, so any other
+// path is a 404.
+export const isKnownPath = (pathname: string) => {
+  const path = pathname.replace(/\/(index\.html)?$/, '');
+  return path === '' || availableLanguages.some((lang) => path === `/${lang}`);
+};
+
 const initTranslations = () => {
   // `location` is missing when the page is prerendered at build time
-  const pathParts =
-    typeof location !== 'undefined' ? location.pathname.split('/') : [];
   const selectedLanguage =
-    pathParts.find((part) => availableLanguages.includes(part)) ||
+    (typeof location !== 'undefined' && pathLanguage(location.pathname)) ||
     defaultLanguage;
 
   i18n.use(initReactI18next).init({

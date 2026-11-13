@@ -24,6 +24,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  // The 404 page has its own glows: the other two corners, one in its own
+  // color. main.tsx sets the attribute, and 404.html is built with it.
+  &[data-page='not-found'] {
+    background-image: radial-gradient(
+      circle min(60rem, 120vw) at 0 -20vh,
+      var(--page-glow-color),
+      transparent
+    );
+  }
+
   * {
     box-sizing: border-box;
     -ms-overflow-style: none; /* IE and Edge */

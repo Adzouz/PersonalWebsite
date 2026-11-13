@@ -82,6 +82,48 @@ const translations = {
     map: {
       city: 'Lille, FR',
     },
+    notFound: {
+      subtitle: 'Parece que te has equivocado de puerta.',
+      question: 'Oye, ¿dónde está {{path}}?',
+      answer:
+        'En ninguna parte, lo siento 🚪 Esta página no existe: se ha movido o nunca existió. Pero ya que estás aquí, ¿qué quieres hacer?',
+      options: {
+        home: '🏠 Volver al sitio',
+        ask: '💬 Hacer una pregunta',
+        play: '🕹️ Jugar a un juego',
+      },
+      ask: '¡Claro, adelante! Pregúntame lo que quieras sobre mi trabajo.',
+      game: {
+        rules:
+          '¡Juguemos a Bug Squash! Aplasta los bugs 🐛 antes de que lleguen a producción y no toques las funcionalidades ✨. Tienes {{lives}} vidas.',
+        score: 'Puntos',
+        combo: 'Combo',
+        lives: 'Vidas',
+        start: 'Empezar',
+        again: 'Jugar otra vez',
+        over: '¡Fin de la partida!',
+        legend: {
+          bug: 'Aplastar',
+          feature: 'No tocar',
+        },
+        scores: {
+          title: 'Mejores puntuaciones',
+          loading: 'Cargando las puntuaciones…',
+          failed: 'No se pueden cargar las puntuaciones ahora.',
+          empty: 'Todavía no hay puntuaciones. ¡Sé el primero!',
+          newHigh: '¡Nuevo récord: {{score}} puntos! Escribe tus iniciales:',
+          save: 'Guardar',
+          saving: 'Guardando…',
+          errors: {
+            format: '3 letras, de la A a la Z.',
+            blocked: 'Elige otras iniciales.',
+            rate: 'Demasiados intentos. Espera un minuto y vuelve a intentarlo.',
+            expired: 'Esta partida ya no se puede guardar.',
+            failed: 'No se pudo guardar tu puntuación. Inténtalo de nuevo.',
+          },
+        },
+      },
+    },
   },
 };
 

@@ -2,12 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/:lang(en|fr|es)/:path*",
+      "source": "/:lang(en|fr|es)",
       "destination": "/:lang/index.html"
-    },
-    {
-      "source": "/((?!.*\\.).*)",
-      "destination": "/index.html"
     }
   ],
   "headers": [

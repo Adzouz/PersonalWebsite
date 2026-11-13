@@ -24,6 +24,10 @@ const TITLE = `The Web's Door - Adrien Lepoutre`;
 const KEYWORDS =
   'frontend,developer,react,website,web,app,mobile,apps,site,sites,front-end,front,programmer';
 
+// Head of dist/404.html, the page served for unknown URLs. The browser renders
+// its body in the language of the URL, so this one file covers every language.
+export const notFoundHead = `<title>404 - The Web's Door</title>`;
+
 const pageUrl = (lang: string) => `${SITE_URL}${languagePath(lang)}`;
 
 const escapeAttribute = (value: string) =>
