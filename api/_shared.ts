@@ -1,6 +1,9 @@
 // Helpers of the Bug Squash API. Files starting with `_` are not routes.
 import { Redis } from '@upstash/redis';
-import { type ScoreEntry, TOP_SIZE } from '../src/components/BugSquash/scores';
+import {
+  type ScoreEntry,
+  TOP_SIZE,
+} from '../src/components/BugSquash/scores.js';
 
 // Reads KV_REST_API_URL and KV_REST_API_TOKEN, set by the Upstash integration
 export const redis = Redis.fromEnv();

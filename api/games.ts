@@ -1,6 +1,6 @@
 // POST /api/games: a game starts. Its id is a single-use ticket that the score
 // submission must bring back, and its start time bounds the score.
-import { json, keys, rateLimited, redis } from './_shared';
+import { json, keys, rateLimited, redis } from './_shared.js';
 
 // A game cannot score after 2.5 minutes of game time, but the game clock stops
 // in a hidden tab, so a ticket lives longer than that

@@ -5,13 +5,20 @@
 // impossible: a human-like reCAPTCHA score, a single-use game ticket, a score
 // no higher than the game rules allow in the time since the game started, and
 // a rate limit. Remove a bad entry from the Upstash console.
-import { maxScore } from '../src/components/BugSquash/game';
+import { maxScore } from '../src/components/BugSquash/game.js';
 import {
   checkInitials,
   RECAPTCHA_ACTION,
   TOP_SIZE,
-} from '../src/components/BugSquash/scores';
-import { clientIp, json, keys, rateLimited, redis, topScores } from './_shared';
+} from '../src/components/BugSquash/scores.js';
+import {
+  clientIp,
+  json,
+  keys,
+  rateLimited,
+  redis,
+  topScores,
+} from './_shared.js';
 
 // The ticket is made a little after the game starts, by one network trip
 const START_SLACK_MS = 2000;

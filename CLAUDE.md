@@ -54,6 +54,7 @@ Node 24 is required and pinned via Volta.
 - Env vars: `KV_REST_API_URL` and `KV_REST_API_TOKEN` (set by the Upstash integration), `GOOGLE_RECAPTCHA_SECRET_KEY` (server only). A deployment without the secret refuses every score.
 - `npm run dev` has no functions: the table shows an error. `npm run dev:api` runs the site and the API with `vercel dev`, after loading `.env.local` (from `vercel env pull`) into the shell, because `vercel dev` does not pass `.env.local` to functions by itself. It skips the reCAPTCHA check when the secret is missing, and it writes to the same Redis store as production.
 - `tsconfig.api.json` type-checks `api/`.
+- Relative imports in `api/` need a `.js` extension (`'./_shared.js'`): Vercel compiles each file to ESM, and Node.js does not guess extensions. Without it, `vercel dev` works but deployments fail with `ERR_MODULE_NOT_FOUND`.
 
 ## Env vars
 

@@ -54,7 +54,7 @@ const translations = {
           ERROR_DEFAULT: 'Error from the chatbot API.',
         },
       },
-      downloadCV: 'Download my CV',
+      downloadCV: 'Download my resume',
     },
     showcase: {
       title: 'Showcase',
