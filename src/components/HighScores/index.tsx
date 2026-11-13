@@ -18,9 +18,9 @@ interface HighScoresProps {
   scores: ScoreEntry[] | 'loading' | 'error';
   // The game that just ended, when its score earns a place in the table
   entry: { game: string; score: number } | null;
-  // The score this visitor just saved, to highlight it
-  saved: ScoreEntry | null;
-  onSaved: (scores: ScoreEntry[], saved: ScoreEntry) => void;
+  // Rank of the score this visitor just saved, to highlight it
+  savedRank: number | null;
+  onSaved: (scores: ScoreEntry[], rank: number | null) => void;
   inputRef: Ref<HTMLInputElement>;
 }
 
@@ -28,7 +28,7 @@ interface HighScoresProps {
 const HighScores = ({
   scores,
   entry,
-  saved,
+  savedRank,
   onSaved,
   inputRef,
 }: HighScoresProps) => {
@@ -50,8 +50,12 @@ const HighScores = ({
     setSaving(true);
     try {
       const token = await recaptchaToken(RECAPTCHA_ACTION);
-      const next = await submitScore({ ...entry, initials, token });
-      onSaved(next, { initials, score: entry.score });
+      const { scores: next, rank } = await submitScore({
+        ...entry,
+        initials,
+        token,
+      });
+      onSaved(next, rank);
     } catch (submitError) {
       setError(
         submitError === 'initials'
@@ -64,13 +68,6 @@ const HighScores = ({
       setSaving(false);
     }
   };
-
-  const savedIndex =
-    saved && Array.isArray(scores)
-      ? scores.findIndex(
-          (row) => row.initials === saved.initials && row.score === saved.score
-        )
-      : -1;
 
   return (
     <div className={styles.highScores}>
@@ -118,7 +115,7 @@ const HighScores = ({
           {scores.map((row, index) => (
             <li
               key={index}
-              className={clsx(index === savedIndex && styles.saved)}
+              className={clsx(index === savedRank && styles.saved)}
             >
               <span>{index + 1}</span>
               <span>{row.initials}</span>

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { loadRecaptcha } from '../../utils/recaptcha';
+import { loadRecaptcha, recaptchaToken } from '../../utils/recaptcha';
 
 // Components
 import { ClearIcon } from '../Icons';
@@ -51,50 +51,48 @@ const Chatbot = () => {
       setError(t('sections.about.chatbot.provideQuestion'));
       return;
     }
-    if (window.grecaptcha) {
-      setError(null);
-      setIsLoading(true);
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute(recaptchaSiteKey, {
-            action: 'homepage',
-          })
-          .then((token) => {
-            if (token) {
-              fetch(`${import.meta.env.REACT_APP_CHATBOT_URL}/ask`, {
-                method: 'POST',
-                body: JSON.stringify({ question, lang, token }),
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-              })
-                .then((response) => response.json())
-                .then((data: { answer?: string; error?: string }) => {
-                  setIsLoading(false);
-                  if (data.error) {
-                    setAnswer('');
-                    setError(t(`sections.about.chatbot.errors.${data.error}`));
-                    return;
-                  }
-                  if (data.answer) {
-                    setAnswer(formatLinks(data.answer));
-                  } else {
-                    setAnswer(t('sections.about.chatbot.fallbackAnswer'));
-                  }
-                })
-                .catch((error) => {
-                  setAnswer('');
-                  setError(t('sections.about.chatbot.errorOccurred'));
-                  console.error('Error with chatbot:', error);
-                  setIsLoading(false);
-                });
-            } else {
-              setError(t('sections.about.chatbot.errorRecaptcha'));
-            }
-          });
-      });
-    } else {
+    setError(null);
+    setIsLoading(true);
+
+    let token: string;
+    try {
+      // Waits for the script if the question comes before it has loaded
+      token = await recaptchaToken('homepage');
+    } catch {
+      token = '';
+    }
+    if (!token) {
       setError(t('sections.about.chatbot.errorRecaptcha'));
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.REACT_APP_CHATBOT_URL}/ask`,
+        {
+          method: 'POST',
+          body: JSON.stringify({ question, lang, token }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      const data: { answer?: string; error?: string } = await response.json();
+      if (data.error) {
+        setAnswer('');
+        setError(t(`sections.about.chatbot.errors.${data.error}`));
+      } else if (data.answer) {
+        setAnswer(formatLinks(data.answer));
+      } else {
+        setAnswer(t('sections.about.chatbot.fallbackAnswer'));
+      }
+    } catch (error) {
+      setAnswer('');
+      setError(t('sections.about.chatbot.errorOccurred'));
+      console.error('Error with chatbot:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 

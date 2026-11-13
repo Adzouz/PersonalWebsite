@@ -23,6 +23,18 @@ export const fetchScores = async () =>
 export const startGame = async () =>
   (await request<{ id: string }>('/api/games', { method: 'POST' })).id;
 
+// What each refusal of the server means for the player
+const SUBMIT_ERRORS: Record<string, SubmitError> = {
+  rate: 'rate',
+  initials: 'initials',
+  // The ticket is used up by these, so trying again cannot help
+  expired: 'expired',
+  implausible: 'expired',
+  beaten: 'expired',
+};
+
+// The table after the save, and the rank of the saved score in it (null if a
+// better score pushed it out meanwhile)
 export const submitScore = async (submission: {
   game: string;
   initials: string;
@@ -30,15 +42,11 @@ export const submitScore = async (submission: {
   token: string;
 }) => {
   try {
-    const body = await request<{ scores: ScoreEntry[] }>('/api/scores', {
-      method: 'POST',
-      body: JSON.stringify(submission),
-    });
-    return body.scores;
+    return await request<{ scores: ScoreEntry[]; rank: number | null }>(
+      '/api/scores',
+      { method: 'POST', body: JSON.stringify(submission) }
+    );
   } catch (error) {
-    const code = (error as Error).message;
-    throw (
-      ['rate', 'expired', 'initials'].includes(code) ? code : 'failed'
-    ) as SubmitError;
+    throw SUBMIT_ERRORS[(error as Error).message] ?? 'failed';
   }
 };

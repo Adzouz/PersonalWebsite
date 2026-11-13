@@ -8,6 +8,7 @@
 import { maxScore } from '../src/components/BugSquash/game.js';
 import {
   checkInitials,
+  makesTheTable,
   RECAPTCHA_ACTION,
   TOP_SIZE,
 } from '../src/components/BugSquash/scores.js';
@@ -17,6 +18,7 @@ import {
   keys,
   rateLimited,
   redis,
+  scoreMember,
   topScores,
 } from './_shared.js';
 
@@ -100,11 +102,18 @@ export async function POST(request: Request) {
     return json({ error: 'implausible' }, 422);
   }
 
-  await redis.zadd(keys.scores, {
-    score: body.score,
-    member: `${body.initials}:${body.game}`,
-  });
+  // Same rule as the game, which only offers to save a score that beats the
+  // last one in the table. Someone else may have beaten it meanwhile.
+  if (!makesTheTable(body.score, await topScores())) {
+    return json({ error: 'beaten' }, 409);
+  }
+
+  const member = scoreMember(body.initials, body.game);
+  await redis.zadd(keys.scores, { score: body.score, member });
   // Keep only the best TOP_SIZE
   await redis.zremrangebyrank(keys.scores, 0, -(TOP_SIZE + 1));
-  return json({ scores: await topScores() });
+  // Where the new score sits, so the game highlights that row and not an
+  // equal score of someone else. Null if a better one pushed it out meanwhile.
+  const rank = await redis.zrevrank(keys.scores, member);
+  return json({ scores: await topScores(), rank });
 }

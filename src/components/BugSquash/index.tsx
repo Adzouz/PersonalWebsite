@@ -41,7 +41,7 @@ const BugSquash = () => {
   );
   // The server's ticket for the current game, needed to save its score
   const [ticket, setTicket] = useState<string | null>(null);
-  const [saved, setSaved] = useState<ScoreEntry | null>(null);
+  const [savedRank, setSavedRank] = useState<number | null>(null);
   // Counts games, so a late ticket of an earlier game is ignored
   const gameCount = useRef(0);
   const playing = game.status === 'playing';
@@ -136,7 +136,7 @@ const BugSquash = () => {
     const count = ++gameCount.current;
     setGame(newGame('playing'));
     setTicket(null);
-    setSaved(null);
+    setSavedRank(null);
     // Without a ticket the game is played all the same, but not saved
     startGame().then(
       (id) => count === gameCount.current && setTicket(id),
@@ -144,9 +144,9 @@ const BugSquash = () => {
     );
   };
 
-  const onSaved = (next: ScoreEntry[], mine: ScoreEntry) => {
+  const onSaved = (next: ScoreEntry[], rank: number | null) => {
     setScores(next);
-    setSaved(mine);
+    setSavedRank(rank);
     setTicket(null);
   };
 
@@ -229,7 +229,7 @@ const BugSquash = () => {
       <HighScores
         scores={scores}
         entry={entry}
-        saved={saved}
+        savedRank={savedRank}
         onSaved={onSaved}
         inputRef={initialsRef}
       />

@@ -30,8 +30,16 @@ export const recaptchaToken = async (action: string) => {
       window.grecaptcha.execute(siteKey(), { action }).then(resolve, reject)
     )
   );
-  const timeout = new Promise<never>((_, reject) =>
-    setTimeout(() => reject(new Error('reCAPTCHA timed out')), TIMEOUT_MS)
-  );
-  return Promise.race([token, timeout]);
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(
+      () => reject(new Error('reCAPTCHA timed out')),
+      TIMEOUT_MS
+    );
+  });
+  try {
+    return await Promise.race([token, timeout]);
+  } finally {
+    clearTimeout(timer);
+  }
 };
