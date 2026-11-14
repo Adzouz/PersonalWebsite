@@ -54,7 +54,7 @@ const translations = {
           ERROR_DEFAULT: 'Error from the chatbot API.',
         },
       },
-      downloadCV: 'Download my CV',
+      downloadCV: 'Download my resume',
     },
     showcase: {
       title: 'Showcase',
@@ -73,6 +73,46 @@ const translations = {
     },
     map: {
       city: 'Lille, FR',
+    },
+    notFound: {
+      subtitle: 'Looks like you took the wrong door.',
+      question: 'Hey, where is {{path}}?',
+      answer: `Nowhere, I'm afraid 🚪 This page doesn't exist: it moved, or it never did. But since you're here, what would you like to do?`,
+      options: {
+        home: '🏠 Back to the site',
+        ask: '💬 Ask me a question',
+        play: '🕹️ Play a game',
+      },
+      ask: 'Sure, go ahead! Ask me anything about my work.',
+      game: {
+        rules: `Let's play Bug Squash! Squash the bugs 🐛 before they ship to production, and leave the features ✨ alone. You have {{lives}} lives.`,
+        score: 'Score',
+        combo: 'Combo',
+        lives: 'Lives',
+        start: 'Start',
+        again: 'Play again',
+        over: 'Game over!',
+        legend: {
+          bug: 'Squash',
+          feature: `Don't touch`,
+        },
+        scores: {
+          title: 'High scores',
+          loading: 'Loading the scores…',
+          failed: `The scores can't be loaded right now.`,
+          empty: 'No scores yet. Be the first!',
+          newHigh: 'New high score: {{score}} points! Enter your initials:',
+          save: 'Save',
+          saving: 'Saving…',
+          errors: {
+            format: '3 letters, from A to Z.',
+            blocked: 'Please pick other initials.',
+            rate: 'Too many tries. Wait a minute, then try again.',
+            expired: `This game can't be saved anymore.`,
+            failed: `Your score couldn't be saved. Try again.`,
+          },
+        },
+      },
     },
   },
 };

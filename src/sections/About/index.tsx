@@ -1,5 +1,4 @@
 // Libraries
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Components
@@ -12,82 +11,7 @@ import styles from './About.module.scss';
 
 const About = () => {
   const { t, i18n } = useTranslation();
-  const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const currentLang = i18n.language;
-
-  const recaptchaSiteKey = import.meta.env
-    .REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY as string;
-
-  const lang = i18n.language;
-
-  const formatLinks = (text: string) => {
-    const urlRegex = /([hH]ttps?:\/\/[^\s]+)/g;
-    return text.replace(urlRegex, function (url) {
-      return '<a href="' + url + '" target="_blank">' + url + '</a>';
-    });
-  };
-
-  const resetAll = () => {
-    setQuestion('');
-    setAnswer('');
-    setIsLoading(false);
-    setError(null);
-  };
-
-  const handleAsk = async () => {
-    if (!question) {
-      setError(t('sections.about.chatbot.provideQuestion'));
-      return;
-    }
-    if (window.grecaptcha) {
-      setError(null);
-      setIsLoading(true);
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute(recaptchaSiteKey, {
-            action: 'homepage',
-          })
-          .then((token) => {
-            if (token) {
-              fetch(`${import.meta.env.REACT_APP_CHATBOT_URL}/ask`, {
-                method: 'POST',
-                body: JSON.stringify({ question, lang, token }),
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-              })
-                .then((response) => response.json())
-                .then((data: { answer?: string; error?: string }) => {
-                  setIsLoading(false);
-                  if (data.error) {
-                    setAnswer('');
-                    setError(t(`sections.about.chatbot.errors.${data.error}`));
-                    return;
-                  }
-                  if (data.answer) {
-                    setAnswer(formatLinks(data.answer));
-                  } else {
-                    setAnswer(t('sections.about.chatbot.fallbackAnswer'));
-                  }
-                })
-                .catch((error) => {
-                  setAnswer('');
-                  setError(t('sections.about.chatbot.errorOccurred'));
-                  console.error('Error with chatbot:', error);
-                  setIsLoading(false);
-                });
-            } else {
-              setError(t('sections.about.chatbot.errorRecaptcha'));
-            }
-          });
-      });
-    } else {
-      setError(t('sections.about.chatbot.errorRecaptcha'));
-    }
-  };
 
   return (
     <AppearOnScroll>
@@ -96,15 +20,7 @@ const About = () => {
         <p>{t('sections.about.start')}</p>
         <ul className={styles.messages}>
           <Questions />
-          <Chatbot
-            answer={answer}
-            error={error}
-            handleAsk={handleAsk}
-            isLoading={isLoading}
-            question={question}
-            resetAll={resetAll}
-            setQuestion={setQuestion}
-          />
+          <Chatbot />
         </ul>
         <div className={styles.button}>
           <a

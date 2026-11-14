@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { availableLanguages, languagePath } from '../../i18n';
+import { availableLanguages, languagePath, pathInLanguage } from '../../i18n';
 
 // Components
 import { FranceFlag, SpainFlag, UKFlag } from '../Languages';
@@ -22,7 +22,20 @@ const getLangFlag = (lang: string) => {
   }
 };
 
-const Navbar = () => {
+interface NavbarProps {
+  // On the 404 page, the navbar keeps only the theme toggle and the languages:
+  // the links lead to the sections of the home page. Changing the language
+  // stays on the same missing page.
+  notFound?: boolean;
+}
+
+// The 404 page is never prerendered, so it may read `location`
+const languageHref = (lang: string, notFound: boolean) =>
+  notFound
+    ? pathInLanguage(location.pathname, lang) + location.search
+    : languagePath(lang);
+
+const Navbar = ({ notFound = false }: NavbarProps) => {
   const { t, i18n } = useTranslation();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
@@ -56,26 +69,30 @@ const Navbar = () => {
       ])}
       id={styles.navbar}
     >
-      <button
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-        className={styles.mobileMenuButton}
-      >
-        {t('navbar.menu')}
-      </button>
-      <ul className={clsx([styles.left, showMobileMenu && styles.visible])}>
-        <li>
-          <a href="#clients">{t('navbar.clients')}</a>
-        </li>
-        <li>
-          <a href="#about">{t('navbar.about')}</a>
-        </li>
-        <li>
-          <a href="#showcase">{t('navbar.showcase')}</a>
-        </li>
-        <li>
-          <a href="#contact">{t('navbar.contact')}</a>
-        </li>
-      </ul>
+      {!notFound && (
+        <>
+          <button
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+            className={styles.mobileMenuButton}
+          >
+            {t('navbar.menu')}
+          </button>
+          <ul className={clsx([styles.left, showMobileMenu && styles.visible])}>
+            <li>
+              <a href="#clients">{t('navbar.clients')}</a>
+            </li>
+            <li>
+              <a href="#about">{t('navbar.about')}</a>
+            </li>
+            <li>
+              <a href="#showcase">{t('navbar.showcase')}</a>
+            </li>
+            <li>
+              <a href="#contact">{t('navbar.contact')}</a>
+            </li>
+          </ul>
+        </>
+      )}
       <ThemeToggle />
       <div className={styles.right}>
         <button onClick={() => setShowLanguages(!showLanguages)}>
@@ -86,7 +103,7 @@ const Navbar = () => {
         >
           {otherLanguages.map((lang) => (
             <li key={`flag_${lang}`}>
-              <a href={languagePath(lang)}>
+              <a href={languageHref(lang, notFound)}>
                 {getLangFlag(lang)} {lang.toUpperCase()}
               </a>
             </li>
