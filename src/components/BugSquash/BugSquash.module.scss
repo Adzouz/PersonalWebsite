@@ -173,6 +173,7 @@
 
   button {
     @include button;
+    white-space: nowrap;
 
     @media (hover: hover) {
       &:hover {
@@ -199,6 +200,14 @@
   line-height: 1.25rem;
   text-transform: uppercase;
   color: var(--third-color);
+}
+
+// Title of the legend. Two classes, to beat the font size of the About section's
+// paragraphs.
+.actions .rules {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: bold;
 }
 
 // The rules at a glance: the chat message that explains them may be out of view

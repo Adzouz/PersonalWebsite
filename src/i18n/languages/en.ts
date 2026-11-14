@@ -93,6 +93,7 @@ const translations = {
         again: 'Play again',
         over: 'Game over!',
         legend: {
+          title: 'Rules:',
           bug: 'Squash',
           feature: `Don't touch`,
         },

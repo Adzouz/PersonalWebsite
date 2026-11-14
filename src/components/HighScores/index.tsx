@@ -24,6 +24,8 @@ interface HighScoresProps {
   inputRef: Ref<HTMLInputElement>;
 }
 
+const MEDALS = ['🥇', '🥈', '🥉'];
+
 // The global high-score table, and the initials form of a new high score
 const HighScores = ({
   scores,
@@ -117,7 +119,8 @@ const HighScores = ({
               key={index}
               className={clsx(index === savedRank && styles.saved)}
             >
-              <span>{index + 1}</span>
+              <span>#{index + 1}</span>
+              <span aria-hidden="true">{MEDALS[index]}</span>
               <span>{row.initials}</span>
               <span>{row.score}</span>
             </li>

@@ -44,13 +44,16 @@ h3.title {
     letter-spacing: 0.25em;
     text-align: center;
     color: var(--text-color);
+    // The game sets user-select: none, but the initials can be selected
+    -webkit-user-select: text;
+    user-select: text;
 
     &::placeholder {
       color: var(--fourth-color);
       opacity: 0.5;
     }
     &:focus-visible {
-      outline-color: var(--text-color);
+      color: var(--text-color) !important;
     }
   }
   button {
@@ -74,7 +77,9 @@ h3.title {
   }
 }
 
-.error {
+// Two classes on the paragraphs, to beat the font size of the About section's
+// paragraphs
+.highScores .error {
   margin: 0.75rem 0 0;
   font-size: 0.875rem;
   color: var(--third-color);
@@ -89,8 +94,14 @@ h3.title {
 
   li {
     display: grid;
-    grid-template-columns: 2rem 1fr auto;
+    // Rank, medal, initials, score. The rank column fits "#10".
+    grid-template-columns: 2.5rem 1.5rem 1fr auto;
     padding: 0.375rem 0.5rem;
+    align-items: center;
+    // The chat section centers its text
+    text-align: left;
+    // A fixed line height, so the medal emojis don't make their rows taller
+    line-height: 1.25rem;
     border-radius: 1rem;
     font-size: 0.875rem;
 
@@ -107,7 +118,7 @@ h3.title {
   }
 }
 
-.message {
+.highScores .message {
   margin: 0;
   font-size: 0.875rem;
   text-align: center;

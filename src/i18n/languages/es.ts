@@ -103,6 +103,7 @@ const translations = {
         again: 'Jugar otra vez',
         over: '¡Fin de la partida!',
         legend: {
+          title: 'Reglas:',
           bug: 'Aplastar',
           feature: 'No tocar',
         },

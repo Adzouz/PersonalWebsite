@@ -94,6 +94,7 @@ const translations = {
         again: 'Rejouer',
         over: 'Partie terminée!',
         legend: {
+          title: 'Règles:',
           bug: 'À écraser',
           feature: 'Pas touche',
         },

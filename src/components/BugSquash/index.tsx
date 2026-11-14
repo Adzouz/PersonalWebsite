@@ -1,5 +1,5 @@
 // Libraries
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { type Hole, hit, LIVES, multiplier, newGame, tick } from './game';
@@ -28,6 +28,7 @@ const EMOJIS: Record<Hole['content'], string> = {
 };
 
 const BugSquash = () => {
+  const id = useId();
   const { t } = useTranslation();
   const [game, setGame] = useState(newGame);
   // Game time in ms. It only moves while the loop below runs.
@@ -217,7 +218,10 @@ const BugSquash = () => {
         >
           {t(`${keyPrefix}.${game.status === 'over' ? 'again' : 'start'}`)}
         </button>
-        <ul className={styles.legend}>
+        <p id={`${id}-rules`} className={styles.rules}>
+          {t(`${keyPrefix}.legend.title`)}
+        </p>
+        <ul className={styles.legend} aria-labelledby={`${id}-rules`}>
           <li>
             {EMOJIS.bug} {t(`${keyPrefix}.legend.bug`)}
           </li>
